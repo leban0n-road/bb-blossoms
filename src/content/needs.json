@@ -1,0 +1,149 @@
+[
+  {
+    "slug": "fast-growing-privacy-plants",
+    "name": "Fast-Growing Privacy Plants",
+    "intro": "When you need a screen fast, these are the varieties BB Blossoms recommends first. Each grows at least 2–5 feet per year and stays evergreen year-round, so the view (or the neighbors) disappears in a season or two, not a decade.",
+    "metaTitle": "Fast-Growing Privacy Plants for Georgia Yards | BB Blossoms",
+    "metaDescription": "Shop the fastest-growing privacy plants for Georgia — Green Giant Arborvitae, Leyland Cypress, Wax Myrtle & more. Delivery and installation available.",
+    "canonicalCategory": "privacy-screening",
+    "plantSlugs": ["green-giant-arborvitae", "leyland-cypress", "wax-myrtle", "skip-laurel", "nellie-r-stevens-holly", "clumping-bamboo", "eastern-red-cedar"],
+    "faqs": [
+      { "question": "What is the fastest-growing privacy plant?", "answer": "Green Giant Arborvitae is the fastest-growing privacy plant available at BB Blossoms, adding 3–5 feet of height per year until it matures at 30–40 feet tall. Clumping Bamboo grows even faster in its first two seasons but needs more room to spread." }
+    ]
+  },
+  {
+    "slug": "plants-for-a-fence-line",
+    "name": "Plants for a Fence Line",
+    "intro": "Soften a fence or extend a screen along the property line with shrubs and trees that stay narrow enough not to crowd the fence, while still growing tall and dense enough to add privacy above it.",
+    "metaTitle": "Best Plants for a Fence Line in Georgia | BB Blossoms",
+    "metaDescription": "Find the best shrubs and trees to plant along a fence line in Georgia — narrow, dense, and easy to maintain. Shop now with local delivery.",
+    "canonicalCategory": "privacy-screening",
+    "plantSlugs": ["emerald-green-arborvitae", "skip-laurel", "wax-myrtle", "carolina-cherry-laurel", "sunshine-ligustrum", "clumping-bamboo"],
+    "faqs": [
+      { "question": "What should I plant along a fence line for privacy?", "answer": "Emerald Green Arborvitae and Skip Laurel are ideal for a fence line because both stay narrow (4–6 feet wide at maturity) while growing tall enough to extend privacy above the fence itself, without their roots or branches damaging the structure." }
+    ]
+  },
+  {
+    "slug": "deer-resistant-plants",
+    "name": "Deer-Resistant Plants",
+    "intro": "Deer pressure is a real problem in Georgia's suburban and exurban neighborhoods. These plants are rarely browsed thanks to fragrant foliage, thorns, or textures deer avoid — though no plant is 100% deer-proof in a hard winter.",
+    "metaTitle": "Deer-Resistant Plants for Georgia Gardens | BB Blossoms",
+    "metaDescription": "Shop deer-resistant trees, shrubs, and perennials for Georgia yards, including hollies, cedars, and native perennials deer typically avoid.",
+    "plantSlugs": ["nellie-r-stevens-holly", "burford-holly", "needlepoint-holly", "american-holly", "eastern-red-cedar", "russian-sage", "autumn-fern", "dwarf-yaupon-holly", "carolina-jessamine"],
+    "faqs": [
+      { "question": "What plants do deer never eat?", "answer": "No plant is completely deer-proof, but hollies, Eastern Red Cedar, ferns, and aromatic perennials like Russian Sage are rarely browsed because of their prickly texture, tough leaves, or strong scent. Deer pressure varies by neighborhood, so pair resistant plants with fencing in high-pressure areas." }
+    ]
+  },
+  {
+    "slug": "full-sun-plants",
+    "name": "Full Sun Plants",
+    "intro": "For beds and borders that get 6+ hours of direct sun, these plants hold their color and form without scorching in Georgia's summer heat.",
+    "metaTitle": "Full Sun Plants for Georgia Gardens | BB Blossoms",
+    "metaDescription": "Shop plants built for full sun — Knock Out Rose, Crape Myrtle, Coneflower, Russian Sage & more. Thrives in 6+ hours of direct Georgia sun.",
+    "plantSlugs": ["knock-out-rose", "natchez-crape-myrtle", "muskogee-crape-myrtle", "russian-sage", "black-eyed-susan", "powwow-wild-berry-coneflower", "coreopsis", "gaura", "may-night-salvia"],
+    "faqs": [
+      { "question": "What flowers bloom all summer in full sun in Georgia?", "answer": "Knock Out Roses, Black-Eyed Susan, Coneflower, and Salvia all bloom continuously through Georgia's full-sun summers with minimal deadheading, tolerating both intense heat and the occasional drought once established." }
+    ]
+  },
+  {
+    "slug": "shade-plants",
+    "name": "Shade Plants",
+    "intro": "Under tree canopy or on the north side of the house, these plants thrive with 2–4 hours of sun or dappled light rather than struggling to bloom.",
+    "metaTitle": "Shade Plants for Georgia Yards | BB Blossoms",
+    "metaDescription": "Shop shade-loving plants for Georgia gardens — Hosta, Fern, Hydrangea, Camellia & more. Thrives with 2–4 hours of sun or dappled light.",
+    "plantSlugs": ["patriot-hosta", "autumn-fern", "oakleaf-hydrangea", "camellia-japonica", "native-mountain-laurel", "heuchera-coral-bells"],
+    "faqs": [
+      { "question": "What plants grow best in full shade in Georgia?", "answer": "Hosta, Autumn Fern, Oakleaf Hydrangea, and Camellia japonica grow best in full to part shade in Georgia, tolerating the deep shade cast by mature hardwood canopy that limits most flowering perennials." }
+    ]
+  },
+  {
+    "slug": "native-georgia-plants",
+    "name": "Native Georgia Plants",
+    "intro": "Native plants support local pollinators and wildlife, require less irrigation once established, and are naturally adapted to Georgia's rainfall patterns and clay soil.",
+    "metaTitle": "Native Georgia Plants for Sale | BB Blossoms Nursery",
+    "metaDescription": "Shop native Georgia plants for a low-maintenance, pollinator-friendly landscape — Beautyberry, Sweetspire, Redbud, Flame Azalea & more.",
+    "plantSlugs": ["american-beautyberry", "virginia-sweetspire", "carolina-jessamine", "native-flame-azalea", "native-mountain-laurel", "georgia-aster", "eastern-red-cedar", "eastern-redbud"],
+    "faqs": [
+      { "question": "Why plant native Georgia species?", "answer": "Native Georgia plants require less water, fertilizer, and pest control than non-native ornamentals because they evolved alongside the region's soil, rainfall, and insect life. They also provide food and habitat for local pollinators and birds that non-native plants often can't support." }
+    ]
+  },
+  {
+    "slug": "low-maintenance-plants",
+    "name": "Low-Maintenance Plants",
+    "intro": "Busy homeowners and rental properties benefit from plants that need minimal pruning, spraying, or babying to look good year after year.",
+    "metaTitle": "Low-Maintenance Plants for Georgia Landscapes | BB Blossoms",
+    "metaDescription": "Shop low-maintenance plants for Georgia yards that need minimal pruning or watering once established — Knock Out Rose, Ligustrum, Lantana & more.",
+    "plantSlugs": ["knock-out-rose", "russian-sage", "coreopsis", "autumn-fern", "dwarf-yaupon-holly", "sunshine-ligustrum", "miss-huff-lantana"],
+    "faqs": [
+      { "question": "What is the most low-maintenance shrub for Georgia?", "answer": "Knock Out Rose and Dwarf Yaupon Holly are among the most low-maintenance shrubs for Georgia, requiring only an annual trim and no routine spraying to stay healthy and attractive through the growing season." }
+    ]
+  },
+  {
+    "slug": "pollinator-plants",
+    "name": "Pollinator Plants",
+    "intro": "Attract bees, butterflies, and hummingbirds with nectar- and pollen-rich plants that bloom across multiple seasons for continuous pollinator support.",
+    "metaTitle": "Pollinator-Friendly Plants for Georgia Gardens | BB Blossoms",
+    "metaDescription": "Shop pollinator plants for Georgia — Coneflower, Salvia, Butterfly Bush, Georgia Aster & more to attract bees, butterflies, and hummingbirds.",
+    "plantSlugs": ["black-eyed-susan", "powwow-wild-berry-coneflower", "magnus-purple-coneflower", "russian-sage", "georgia-aster", "carolina-jessamine", "miss-huff-lantana", "butterfly-bush"],
+    "faqs": [
+      { "question": "What plants attract the most pollinators in Georgia?", "answer": "Coneflower, Salvia, Lantana, and Butterfly Bush attract the most pollinators in Georgia gardens, drawing bees, butterflies, and hummingbirds throughout their long summer-to-fall bloom windows." }
+    ]
+  },
+  {
+    "slug": "plants-for-clay-soil",
+    "name": "Plants for Clay Soil",
+    "intro": "Georgia's dense red clay drains slowly and compacts easily, but these plants tolerate — and in some cases prefer — clay-heavy conditions without special amendment.",
+    "metaTitle": "Plants for Clay Soil in Georgia | BB Blossoms",
+    "metaDescription": "Shop plants that tolerate Georgia's clay soil, including Azalea, Hydrangea, Beautyberry, and Crape Myrtle. No special soil amendment required.",
+    "plantSlugs": ["knock-out-rose", "encore-azalea", "oakleaf-hydrangea", "american-beautyberry", "virginia-sweetspire", "black-eyed-susan", "natchez-crape-myrtle"],
+    "faqs": [
+      { "question": "What plants tolerate Georgia's red clay soil?", "answer": "Oakleaf Hydrangea, American Beautyberry, Virginia Sweetspire, and Crape Myrtle all tolerate Georgia's red clay soil without amendment, since their root systems are adapted to slower drainage and compacted subsoil." }
+    ]
+  },
+  {
+    "slug": "drought-tolerant-plants",
+    "name": "Drought-Tolerant Plants",
+    "intro": "Once established, these plants need little to no supplemental irrigation, making them ideal for water-wise landscaping or beds without an irrigation system.",
+    "metaTitle": "Drought-Tolerant Plants for Georgia | BB Blossoms",
+    "metaDescription": "Shop drought-tolerant plants for Georgia yards that thrive with minimal watering once established — Russian Sage, Ligustrum, Cedar & more.",
+    "plantSlugs": ["russian-sage", "coreopsis", "gaura", "sunshine-ligustrum", "eastern-red-cedar", "clumping-bamboo", "miss-huff-lantana"],
+    "faqs": [
+      { "question": "How long does a drought-tolerant plant need watering before it's established?", "answer": "Most drought-tolerant plants need regular watering for the first 8–12 weeks after planting while roots establish, after which they can rely on natural rainfall in most Georgia growing seasons." }
+    ]
+  },
+  {
+    "slug": "small-yard-trees",
+    "name": "Small Yard Trees",
+    "intro": "Not every yard has room for a 60-foot shade tree. These ornamental and flowering trees top out under 25–30 feet, fitting comfortably near patios, driveways, and property lines.",
+    "metaTitle": "Small Trees for Small Yards in Georgia | BB Blossoms",
+    "metaDescription": "Shop small yard trees for Georgia — Japanese Maple, Redbud, Dogwood, Crape Myrtle & more. Compact trees that fit tight spaces.",
+    "canonicalCategory": "trees",
+    "plantSlugs": ["eastern-redbud", "forest-pansy-redbud", "bloodgood-japanese-maple", "natchez-crape-myrtle", "white-flowering-dogwood", "kousa-dogwood", "little-gem-magnolia"],
+    "faqs": [
+      { "question": "What is the best small tree for a Georgia front yard?", "answer": "Eastern Redbud and Crape Myrtle are the best small trees for a Georgia front yard, both maturing under 25 feet with heavy spring or summer bloom and a manageable, non-invasive root system near driveways and foundations." }
+    ]
+  },
+  {
+    "slug": "plants-for-hoa-landscapes",
+    "name": "Plants for HOA Landscapes",
+    "intro": "These varieties combine tidy, predictable growth habits with strong curb appeal — a safe choice for landscapes that need to meet HOA guidelines without constant pruning.",
+    "metaTitle": "HOA-Approved Landscape Plants for Georgia | BB Blossoms",
+    "metaDescription": "Shop tidy, predictable plants for HOA-compliant landscapes in Georgia — Knock Out Rose, Azalea, Holly, Crape Myrtle & more.",
+    "plantSlugs": ["knock-out-rose", "encore-azalea", "limelight-hydrangea", "sunshine-ligustrum", "natchez-crape-myrtle", "oakland-holly", "needlepoint-holly"],
+    "faqs": [
+      { "question": "What plants keep a neat, uniform look for HOA landscaping?", "answer": "Knock Out Rose, Encore Azalea, and columnar hollies like Oakland Holly keep a neat, uniform look with predictable size and shape, making them easy to maintain to HOA landscaping standards without frequent shearing." }
+    ]
+  },
+  {
+    "slug": "evergreen-privacy-plants",
+    "name": "Evergreen Privacy Plants",
+    "intro": "For year-round screening that never drops its leaves in winter, these evergreen trees and shrubs keep the view blocked in every season.",
+    "metaTitle": "Evergreen Privacy Plants for Georgia | BB Blossoms",
+    "metaDescription": "Shop evergreen privacy plants for Georgia that screen views year-round — Arborvitae, Holly, Cypress, Cedar & more.",
+    "canonicalCategory": "privacy-screening",
+    "plantSlugs": ["green-giant-arborvitae", "emerald-green-arborvitae", "leyland-cypress", "nellie-r-stevens-holly", "oakland-holly", "burford-holly", "eastern-red-cedar", "tea-olive-fragrant-osmanthus"],
+    "faqs": [
+      { "question": "What is the best evergreen for year-round privacy in Georgia?", "answer": "Green Giant Arborvitae is the best evergreen for year-round privacy in Georgia, combining fast growth, dense foliage that never drops, and strong resistance to the bagworm and disease issues that affect Leyland Cypress." }
+    ]
+  }
+]

@@ -1,0 +1,233 @@
+[
+  {
+    "slug": "lawrenceville-ga",
+    "city": "Lawrenceville",
+    "county": "Gwinnett County",
+    "state": "Georgia",
+    "stateAbbr": "GA",
+    "zone": "8a",
+    "intro": "BB Blossoms is headquartered right here in Lawrenceville, off Nursery Row near the Gwinnett County Courthouse. Our home turf sits in USDA Zone 8a with the dense red clay typical of the Piedmont, which means we stock and recommend plants specifically selected to handle that soil without heavy amendment.",
+    "landmarkNote": "Serving neighborhoods from downtown Lawrenceville and the Historic Courthouse Square out to Rhodes Jordan Park and the Highway 316 corridor.",
+    "soilNote": "Lawrenceville's soil is classic Piedmont red clay — slow-draining and slightly acidic, which favors Azaleas, Hydrangeas, and hollies but benefits from raised beds for fruit trees.",
+    "deliveryRadiusMiles": 10,
+    "deliveryNote": "Same-week delivery is standard for Lawrenceville addresses; will-call pickup at our Nursery Row location is always free.",
+    "popularPlantSlugs": ["green-giant-arborvitae", "encore-azalea", "nellie-r-stevens-holly", "limelight-hydrangea", "natchez-crape-myrtle"],
+    "latitude": 33.9562,
+    "longitude": -83.9880,
+    "metaTitle": "Plant Nursery in Lawrenceville, GA | BB Blossoms",
+    "metaDescription": "BB Blossoms is a local plant nursery based in Lawrenceville, GA, offering trees, shrubs, and flowers with delivery and installation across Gwinnett County.",
+    "faqs": [
+      { "question": "Does BB Blossoms deliver to Lawrenceville, GA?", "answer": "Yes — BB Blossoms is based in Lawrenceville and offers same-week local delivery to every neighborhood in the city, plus free will-call pickup at our Nursery Row location for customers who prefer to load their own vehicle." }
+    ]
+  },
+  {
+    "slug": "duluth-ga",
+    "city": "Duluth",
+    "county": "Gwinnett County",
+    "state": "Georgia",
+    "stateAbbr": "GA",
+    "zone": "8a",
+    "intro": "Duluth's mix of established, tree-canopied neighborhoods near Downtown Duluth and newer construction along the Peachtree Industrial corridor means we get calls for everything from mature shade-tree replacement to full privacy screens for new-build lot lines.",
+    "landmarkNote": "Serving Downtown Duluth, the Sugarloaf Country Club area, and neighborhoods along Peachtree Industrial Boulevard.",
+    "soilNote": "Duluth sits on Piedmont clay-loam that holds moisture well — a good match for Hydrangeas and moisture-loving shrubs, but beds near new construction often need topsoil amendment after grading.",
+    "deliveryRadiusMiles": 12,
+    "deliveryNote": "Duluth addresses fall within our standard delivery zone with typical delivery scheduled within 3–5 business days.",
+    "popularPlantSlugs": ["leyland-cypress", "oakleaf-hydrangea", "bloodgood-japanese-maple", "knock-out-rose", "burford-holly"],
+    "latitude": 34.0029,
+    "longitude": -84.1446,
+    "metaTitle": "Plant Nursery Serving Duluth, GA | BB Blossoms",
+    "metaDescription": "Shop trees, shrubs, and flowers with delivery to Duluth, GA. BB Blossoms offers local plant delivery and professional installation across Gwinnett County.",
+    "faqs": [
+      { "question": "What plants work best for new-construction yards in Duluth?", "answer": "Fast-growing privacy evergreens like Leyland Cypress and clay-tolerant shrubs like Oakleaf Hydrangea work best for new-construction yards in Duluth, since they establish quickly in graded, amended soil typical of newer lots." }
+    ]
+  },
+  {
+    "slug": "suwanee-ga",
+    "city": "Suwanee",
+    "county": "Gwinnett County",
+    "state": "Georgia",
+    "stateAbbr": "GA",
+    "zone": "8a",
+    "intro": "Suwanee's walkable Town Center and surrounding master-planned neighborhoods favor tidy, HOA-friendly landscaping — think uniform hedges, seasonal color, and small ornamental trees rather than sprawling privacy screens.",
+    "landmarkNote": "Serving neighborhoods around Suwanee Town Center, George Pierce Park, and the Sharon Springs Road corridor.",
+    "soilNote": "Suwanee's rolling terrain drains better than the flatter parts of Gwinnett County, making it well-suited to a wider range of perennials and flowering shrubs.",
+    "deliveryRadiusMiles": 15,
+    "deliveryNote": "Suwanee is within our extended delivery zone; a small delivery fee applies outside the standard 10-mile radius.",
+    "popularPlantSlugs": ["encore-azalea", "knock-out-rose", "natchez-crape-myrtle", "sunshine-ligustrum", "little-lime-hydrangea"],
+    "latitude": 34.0518,
+    "longitude": -84.0713,
+    "metaTitle": "Plant Nursery Serving Suwanee, GA | BB Blossoms",
+    "metaDescription": "BB Blossoms delivers trees, shrubs, and seasonal color to Suwanee, GA, with HOA-friendly plant recommendations and professional installation.",
+    "faqs": [
+      { "question": "What plants meet HOA guidelines in Suwanee neighborhoods?", "answer": "Knock Out Rose, Encore Azalea, and Sunshine Ligustrum meet most HOA guidelines in Suwanee neighborhoods thanks to their tidy, predictable growth habit and long bloom or color season without frequent pruning." }
+    ]
+  },
+  {
+    "slug": "buford-ga",
+    "city": "Buford",
+    "county": "Gwinnett/Hall County",
+    "state": "Georgia",
+    "stateAbbr": "GA",
+    "zone": "8a",
+    "intro": "Buford properties range from historic in-town lots to larger acreage near Lake Lanier, so we see everything from small ornamental trees for tight yards to full privacy tree lines for lakefront and rural-feeling parcels.",
+    "landmarkNote": "Serving Downtown Buford, the Mall of Georgia area, and neighborhoods toward Lake Lanier.",
+    "soilNote": "Soil composition varies more in Buford than closer to Atlanta, ranging from red clay to sandier loam near the lake — we recommend a quick soil check before planting fruit trees.",
+    "deliveryRadiusMiles": 18,
+    "deliveryNote": "Buford is served on our Tuesday/Thursday delivery route; schedule at checkout or by phone.",
+    "popularPlantSlugs": ["green-giant-arborvitae", "brightwell-rabbiteye-blueberry", "eastern-red-cedar", "crimson-fire-loropetalum", "october-glory-red-maple"],
+    "latitude": 34.1207,
+    "longitude": -83.9955,
+    "metaTitle": "Plant Nursery Serving Buford, GA | BB Blossoms",
+    "metaDescription": "Shop trees, privacy plants, and fruit trees with delivery to Buford, GA. BB Blossoms serves the Lake Lanier and Mall of Georgia area.",
+    "faqs": [
+      { "question": "Does BB Blossoms deliver near Lake Lanier?", "answer": "Yes — Buford and the surrounding Lake Lanier area are on our standard Tuesday/Thursday delivery route, and our team can advise on windbreak and privacy plantings suited to lakefront exposure." }
+    ]
+  },
+  {
+    "slug": "snellville-ga",
+    "city": "Snellville",
+    "county": "Gwinnett County",
+    "state": "Georgia",
+    "stateAbbr": "GA",
+    "zone": "8a",
+    "intro": "Snellville's established 1980s–2000s neighborhoods often need mature privacy screening replaced or extended, especially along Highway 78 and Ronald Reagan Parkway where rear-yard buffers back up to busier roads.",
+    "landmarkNote": "Serving neighborhoods along Highway 78, Ronald Reagan Parkway, and the Presley Mill Road corridor.",
+    "soilNote": "Snellville sits on dense Piedmont clay; we recommend amending planting holes for fruit trees and hydrangeas but not for natives like Beautyberry or Eastern Red Cedar.",
+    "deliveryRadiusMiles": 15,
+    "deliveryNote": "Snellville is within our standard delivery zone with typical delivery scheduled within 3–5 business days.",
+    "popularPlantSlugs": ["leyland-cypress", "wax-myrtle", "american-beautyberry", "knock-out-rose", "muskogee-crape-myrtle"],
+    "latitude": 33.8562,
+    "longitude": -84.0088,
+    "metaTitle": "Plant Nursery Serving Snellville, GA | BB Blossoms",
+    "metaDescription": "BB Blossoms delivers privacy plants, shade trees, and flowering shrubs to Snellville, GA with professional installation available.",
+    "faqs": [
+      { "question": "What's the best privacy plant for a busy road buffer in Snellville?", "answer": "Leyland Cypress and Wax Myrtle are the best privacy plants for a busy road buffer in Snellville, growing fast enough to establish a sound and sight barrier within 2–3 years while tolerating roadside conditions." }
+    ]
+  },
+  {
+    "slug": "lilburn-ga",
+    "city": "Lilburn",
+    "county": "Gwinnett County",
+    "state": "Georgia",
+    "stateAbbr": "GA",
+    "zone": "8a",
+    "intro": "Lilburn's tree-lined, established neighborhoods around Old Town Lilburn and the Killian Hill corridor tend to have mature shade already in place, so most of our Lilburn orders are flowering shrubs and understory color rather than large shade trees.",
+    "landmarkNote": "Serving Old Town Lilburn, the Killian Hill Road corridor, and neighborhoods near Camp Creek Greenway.",
+    "soilNote": "Established tree canopy in Lilburn means many yards are part-shade — we steer customers toward Hydrangea, Camellia, and Hosta rather than full-sun perennials.",
+    "deliveryRadiusMiles": 12,
+    "deliveryNote": "Lilburn is within our standard delivery zone with typical delivery scheduled within 3–5 business days.",
+    "popularPlantSlugs": ["oakleaf-hydrangea", "camellia-japonica", "patriot-hosta", "encore-azalea", "little-gem-magnolia"],
+    "latitude": 33.8895,
+    "longitude": -84.1416,
+    "metaTitle": "Plant Nursery Serving Lilburn, GA | BB Blossoms",
+    "metaDescription": "Shop shade-tolerant shrubs and flowering plants with delivery to Lilburn, GA. BB Blossoms serves Old Town Lilburn and surrounding neighborhoods.",
+    "faqs": [
+      { "question": "What plants grow well under mature trees in Lilburn?", "answer": "Oakleaf Hydrangea, Camellia japonica, and Hosta grow well under the mature tree canopy common in Lilburn's older neighborhoods, tolerating part-to-full shade where full-sun perennials would struggle." }
+    ]
+  },
+  {
+    "slug": "dacula-ga",
+    "city": "Dacula",
+    "county": "Gwinnett County",
+    "state": "Georgia",
+    "stateAbbr": "GA",
+    "zone": "8a",
+    "intro": "Dacula's newer subdivisions and larger-lot properties along Harbins Road and Fence Road give homeowners room for full privacy tree lines and small orchards that wouldn't fit closer to Atlanta.",
+    "landmarkNote": "Serving neighborhoods along Harbins Road, Fence Road, and the Hamilton Mill area.",
+    "soilNote": "Dacula's soil is variable Piedmont clay-loam; larger lots often benefit from a soil test before planting a fruit tree orchard row.",
+    "deliveryRadiusMiles": 18,
+    "deliveryNote": "Dacula is served on our Tuesday/Thursday delivery route; larger tree-line orders can be scheduled with installation crew coordination.",
+    "popularPlantSlugs": ["green-giant-arborvitae", "brown-turkey-fig", "elberta-peach", "leyland-cypress", "carlos-muscadine"],
+    "latitude": 34.0929,
+    "longitude": -83.8924,
+    "metaTitle": "Plant Nursery Serving Dacula, GA | BB Blossoms",
+    "metaDescription": "Shop privacy trees, fruit trees, and shrubs with delivery to Dacula, GA. BB Blossoms serves Harbins Road and the Hamilton Mill area.",
+    "faqs": [
+      { "question": "Can BB Blossoms plant a fruit tree row on a larger Dacula lot?", "answer": "Yes — our installation crew regularly plants fruit tree rows and orchard-style plantings on the larger lots common in Dacula, including spacing and pollination-pair guidance for peach, apple, and muscadine plantings." }
+    ]
+  },
+  {
+    "slug": "norcross-ga",
+    "city": "Norcross",
+    "county": "Gwinnett County",
+    "state": "Georgia",
+    "stateAbbr": "GA",
+    "zone": "8a",
+    "intro": "Norcross spans everything from the walkable Historic Downtown to dense multifamily and commercial corridors along Jimmy Carter Boulevard, so our Norcross orders split between residential landscaping and commercial property screening.",
+    "landmarkNote": "Serving Historic Downtown Norcross, the Jimmy Carter Boulevard corridor, and Peachtree Corners-adjacent neighborhoods.",
+    "soilNote": "Norcross soil ranges from disturbed commercial-grade fill near development corridors to natural clay-loam in older residential pockets — we recommend a site visit for large commercial screening jobs.",
+    "deliveryRadiusMiles": 12,
+    "deliveryNote": "Norcross is within our standard delivery zone; commercial installation jobs are scheduled with a free on-site consultation.",
+    "popularPlantSlugs": ["nellie-r-stevens-holly", "oakland-holly", "leyland-cypress", "purple-diamond-loropetalum", "crimson-fire-loropetalum"],
+    "latitude": 33.9412,
+    "longitude": -84.2144,
+    "metaTitle": "Plant Nursery Serving Norcross, GA | BB Blossoms",
+    "metaDescription": "BB Blossoms delivers privacy plants and landscaping to Norcross, GA for residential yards and commercial properties, with installation available.",
+    "faqs": [
+      { "question": "Does BB Blossoms handle commercial landscaping in Norcross?", "answer": "Yes — BB Blossoms provides commercial screening and landscaping installation in Norcross along the Jimmy Carter Boulevard corridor, starting with a free on-site consultation to scope plant selection and quantities." }
+    ]
+  },
+  {
+    "slug": "sugar-hill-ga",
+    "city": "Sugar Hill",
+    "county": "Gwinnett County",
+    "state": "Georgia",
+    "stateAbbr": "GA",
+    "zone": "8a",
+    "intro": "Sugar Hill's newer growth along the Highway 20 corridor and around The Bowl amphitheater district means many yards are recently graded and benefit from fast-establishing shrubs and trees.",
+    "landmarkNote": "Serving neighborhoods around The Bowl at Sugar Hill and the Highway 20 corridor.",
+    "soilNote": "Newer grading in Sugar Hill often compacts subsoil; we recommend loosening and amending planting holes more generously than in established neighborhoods.",
+    "deliveryRadiusMiles": 18,
+    "deliveryNote": "Sugar Hill is served on our Tuesday/Thursday delivery route.",
+    "popularPlantSlugs": ["emerald-green-arborvitae", "encore-azalea", "natchez-crape-myrtle", "knock-out-rose", "little-lime-hydrangea"],
+    "latitude": 34.1074,
+    "longitude": -84.0322,
+    "metaTitle": "Plant Nursery Serving Sugar Hill, GA | BB Blossoms",
+    "metaDescription": "Shop trees, shrubs, and flowers with delivery to Sugar Hill, GA. BB Blossoms serves The Bowl and the Highway 20 corridor.",
+    "faqs": [
+      { "question": "Do new-construction yards in Sugar Hill need special soil prep?", "answer": "Yes — new-construction yards in Sugar Hill typically have compacted subsoil from grading, so we recommend loosening and amending each planting hole more generously than you would in an established, undisturbed yard." }
+    ]
+  },
+  {
+    "slug": "grayson-ga",
+    "city": "Grayson",
+    "county": "Gwinnett County",
+    "state": "Georgia",
+    "stateAbbr": "GA",
+    "zone": "8a",
+    "intro": "Grayson's semi-rural character and larger lots along Rosebud Road and Grayson-New Hope Road make it one of our top areas for full privacy tree lines, orchard plantings, and native-plant landscaping.",
+    "landmarkNote": "Serving neighborhoods along Rosebud Road, Grayson-New Hope Road, and Historic Downtown Grayson.",
+    "soilNote": "Grayson's larger, often-unamended lots vary from red clay to rockier subsoil — a site visit is recommended before large tree-line installations.",
+    "deliveryRadiusMiles": 20,
+    "deliveryNote": "Grayson is served on our Tuesday/Thursday delivery route; a small extended-area fee may apply.",
+    "popularPlantSlugs": ["green-giant-arborvitae", "eastern-red-cedar", "tifblue-rabbiteye-blueberry", "american-beautyberry", "southern-magnolia"],
+    "latitude": 33.8873,
+    "longitude": -83.9605,
+    "metaTitle": "Plant Nursery Serving Grayson, GA | BB Blossoms",
+    "metaDescription": "BB Blossoms delivers privacy trees, fruit plants, and native landscaping to Grayson, GA on larger residential and semi-rural lots.",
+    "faqs": [
+      { "question": "Can BB Blossoms install a full privacy tree line on a large Grayson lot?", "answer": "Yes — our installation crew regularly plants full privacy tree lines on Grayson's larger lots, starting with a free on-site consultation to plan spacing, species mix, and irrigation for the establishment period." }
+    ]
+  },
+  {
+    "slug": "gwinnett-county-ga",
+    "city": "Gwinnett County",
+    "county": "Gwinnett County",
+    "state": "Georgia",
+    "stateAbbr": "GA",
+    "zone": "8a",
+    "intro": "BB Blossoms serves every corner of Gwinnett County from our Lawrenceville nursery, covering everything from in-town lots near the courthouse to larger semi-rural parcels near the county line. Wherever you are in the county, our delivery and installation crews are familiar with the local clay soil and Zone 8a growing conditions.",
+    "landmarkNote": "Covering all of Gwinnett County, Georgia — Lawrenceville, Duluth, Suwanee, Buford, Snellville, Lilburn, Dacula, Norcross, Sugar Hill, Grayson, and surrounding communities.",
+    "soilNote": "Gwinnett County sits almost entirely on Piedmont red clay, which drains slowly and benefits from organic matter worked into planting holes for anything outside our native and clay-tolerant plant collections.",
+    "deliveryRadiusMiles": 25,
+    "deliveryNote": "Every address in Gwinnett County falls within our standard or extended delivery zone — see individual city pages for exact scheduling.",
+    "popularPlantSlugs": ["green-giant-arborvitae", "encore-azalea", "nellie-r-stevens-holly", "knock-out-rose", "natchez-crape-myrtle"],
+    "latitude": 33.9526,
+    "longitude": -83.9873,
+    "metaTitle": "Gwinnett County, GA Plant Nursery & Delivery | BB Blossoms",
+    "metaDescription": "BB Blossoms serves all of Gwinnett County, GA with plant delivery and installation — trees, shrubs, flowers, and fruit plants selected for Zone 8a.",
+    "faqs": [
+      { "question": "What areas of Gwinnett County does BB Blossoms serve?", "answer": "BB Blossoms serves the entire Gwinnett County, Georgia area from our Lawrenceville nursery, including Duluth, Suwanee, Buford, Snellville, Lilburn, Dacula, Norcross, Sugar Hill, and Grayson, with delivery and installation crews familiar with each area's soil and microclimate." }
+    ]
+  }
+]
