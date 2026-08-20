@@ -12,7 +12,7 @@ export default function WallpaperBackdrop() {
   return (
     <div aria-hidden="true" className="fixed inset-0 -z-10">
       <Image
-        src="/images/landing-page/wallpaper.png"
+        src="/images/landing-page/wallpaper.jpg"
         alt=""
         fill
         sizes="100vw"

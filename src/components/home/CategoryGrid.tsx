@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Category } from "@/lib/types";
+import GoldFlourish from "@/components/home/GoldFlourish";
 
 // Real product photography exists today only for privacy-screening
 // (green-giant-arborvitae.png) and flowering-shrubs (encore-azalea.png) —
@@ -9,27 +10,6 @@ import type { Category } from "@/lib/types";
 // perennials, annuals-seasonal) still point at generated placeholder
 // graphics. TEMP — swap those heroImage values for real photos as they
 // become available; no component changes will be needed when you do.
-
-function GoldFlourish() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 60 16"
-      className="h-3 w-10 text-gold/70 md:h-4 md:w-14"
-      fill="none"
-    >
-      <path
-        d="M0 8 H22 M38 8 H60"
-        stroke="currentColor"
-        strokeWidth="1"
-      />
-      <path
-        d="M30 2 L34 8 L30 14 L26 8 Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
 
 export default function CategoryGrid({ categories }: { categories: Category[] }) {
   return (

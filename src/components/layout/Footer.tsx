@@ -7,7 +7,7 @@ export default function Footer({ categories }: { categories: Category[] }) {
   return (
     <footer className="relative mt-16 overflow-hidden bg-primary-dark text-white pb-24 lg:pb-0">
       <Image
-        src="/images/landing-page/wallpaper.png"
+        src="/images/landing-page/wallpaper.jpg"
         alt=""
         aria-hidden="true"
         fill

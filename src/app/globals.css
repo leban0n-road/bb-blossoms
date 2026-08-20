@@ -18,6 +18,15 @@
   /* "Blossom" pink — script-font accent word on the hero, on-brand with
      the site name. Distinct from --color-accent (purple, used for CTAs). */
   --color-blossom-pink: #f0679e;
+  /* Lighter, tan-leaning gold used on the hero plaque buttons (text/icon
+     against the dark plaque fill). Distinct from --color-gold, which is
+     more saturated amber and used for the hero subtext, headings, and
+     everywhere else "gold" appears on the site. */
+  --color-plaque-gold: #f0d78c;
+  /* Deeper bronze used only for the nav bar's edge/depth accents (bottom
+     border, underline indicators) — not exposed as a Tailwind utility
+     since it's applied via plain CSS in the nav-specific rules below. */
+  --color-nav-bronze: #b8944a;
 
   --font-heading: var(--font-fraunces);
   --font-body: var(--font-inter);
@@ -37,6 +46,7 @@
   --color-border: var(--color-border);
   --color-gold: var(--color-gold);
   --color-blossom-pink: var(--color-blossom-pink);
+  --color-plaque-gold: var(--color-plaque-gold);
 
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);
@@ -93,6 +103,156 @@ h1, h2, h3, h4, h5, h6 {
 .tap-target {
   min-height: 44px;
   min-width: 44px;
+}
+
+/* --- Nav bar: metallic gradient, animated underlines, scroll shrink --- */
+.nav-gradient-gold {
+  background: linear-gradient(
+    90deg,
+    #e8c876 0%,
+    var(--color-plaque-gold) 25%,
+    #d9b25f 50%,
+    var(--color-plaque-gold) 75%,
+    #e8c876 100%
+  );
+}
+
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: -4px;
+  height: 2px;
+  background: var(--color-nav-bronze);
+  transition: left 0.3s ease, right 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link:focus-visible::after {
+  left: 0;
+  right: 0;
+}
+
+@keyframes nav-quote-pulse {
+  0%, 100% { box-shadow: 0 0 6px 0 rgba(255, 255, 255, 0.5); }
+  50% { box-shadow: 0 0 14px 4px rgba(255, 255, 255, 0.75); }
+}
+.btn-quote-pulse {
+  animation: nav-quote-pulse 2.2s ease-in-out infinite;
+}
+
+/* Metallic gold icon system, shared by the "Shop by Need" buttons and the
+   3 hero CTA buttons (both use the .btn-need marker class so one set of
+   rules covers both). The gradient fill itself comes from a real SVG
+   <linearGradient> rendered once per component (referenced via
+   stroke/fill="url(#...)") — CSS alone can't gradient-fill an SVG stroke.
+   Reduced-motion is handled by the global rule at the bottom of this
+   file (zeroes animation-duration for every element), which also covers
+   the idle loops below — no icon-specific override needed. */
+.need-icon-glow {
+  filter: drop-shadow(0 0 3px rgba(212, 175, 55, 0.4));
+}
+.btn-need:hover .need-icon-glow,
+.btn-need:focus-visible .need-icon-glow {
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.8));
+}
+
+/* --- Idle motion (always running, subtle) --- */
+@keyframes icon-idle-sway {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(3deg); }
+}
+@keyframes icon-idle-sun-rotate {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(8deg); }
+}
+@keyframes icon-idle-twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+.icon-idle-sway { animation: icon-idle-sway 2.6s ease-in-out infinite; }
+.icon-idle-sun { animation: icon-idle-sun-rotate 3s ease-in-out infinite; }
+.icon-idle-twinkle { animation: icon-idle-twinkle 2.2s ease-in-out infinite; }
+
+/* Truck (Why BB Blossoms): subtle side-to-side drift suggesting motion. */
+@keyframes icon-idle-drift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+}
+.icon-idle-drift { animation: icon-idle-drift 2.6s ease-in-out infinite; }
+
+/* --- Hover/focus: spring-loaded scale + rotate combo, overrides the idle
+   animation above via higher selector specificity while active --- */
+@keyframes icon-hover-overshoot {
+  0% { transform: scale(1) rotate(0deg); }
+  55% { transform: scale(1.25) rotate(-14deg); }
+  100% { transform: scale(1.15) rotate(0deg); }
+}
+@keyframes icon-hover-spin {
+  0% { transform: scale(1) rotate(0deg); }
+  70% { transform: scale(1.2) rotate(360deg); }
+  100% { transform: scale(1.15) rotate(360deg); }
+}
+.btn-need:hover .icon-hover-overshoot,
+.btn-need:focus-visible .icon-hover-overshoot {
+  animation: icon-hover-overshoot 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 1;
+}
+.btn-need:hover .icon-hover-spin,
+.btn-need:focus-visible .icon-hover-spin {
+  animation: icon-hover-spin 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1;
+}
+
+/* Why BB Blossoms cards: same hover combo + glow-brighten as .btn-need,
+   but scoped to .why-card instead. These 3 cards are static/informational
+   (no link, nothing to activate), so there's deliberately no
+   :focus-visible trigger to match — adding a tabindex just to give a
+   non-interactive card a keyboard-hover equivalent would create an empty
+   tab stop, which is worse for keyboard users, not better. */
+.why-card:hover .icon-hover-overshoot {
+  animation: icon-hover-overshoot 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) 1;
+}
+.why-card:hover .need-icon-glow {
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.8));
+}
+
+/* --- Particle spark burst: flagship buttons only. Longhand animation
+   properties (no animation-delay) in the trigger rule below, so the
+   per-spark stagger delay set inline in JSX (higher precedence than any
+   external stylesheet rule) is never fought over. --- */
+.icon-spark-wrap {
+  position: relative;
+  display: inline-flex;
+}
+.icon-spark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 3px;
+  border-radius: 9999px;
+  background: #f4d58d;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+.btn-need:hover .icon-spark,
+.btn-need:focus-visible .icon-spark {
+  animation-name: icon-spark-burst;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes icon-spark-burst {
+  0% { opacity: 0; transform: translate(-50%, -50%) translate(0, 0) scale(0.4); }
+  25% { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) translate(var(--spark-x), var(--spark-y)) scale(1);
+  }
 }
 
 /* Legibility aid for text sitting directly on photography with a light

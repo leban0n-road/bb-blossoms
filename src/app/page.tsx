@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
 import WallpaperBackdrop from "@/components/home/WallpaperBackdrop";
-import TrustStrip from "@/components/home/TrustStrip";
-import PromoBanners from "@/components/home/PromoBanners";
 import CategoryGrid from "@/components/home/CategoryGrid";
 import BestSellers from "@/components/home/BestSellers";
 import NeedLinks from "@/components/home/NeedLinks";
 import WhyUs from "@/components/home/WhyUs";
 import Testimonials from "@/components/home/Testimonials";
 import LocationsStrip from "@/components/home/LocationsStrip";
-import NewsletterSignup from "@/components/home/NewsletterSignup";
 import FaqSection from "@/components/FaqSection";
 import {
   getCategories,
@@ -41,15 +38,12 @@ export default function Home() {
       <Hero />
       <div className="relative">
         <WallpaperBackdrop />
-        <TrustStrip />
-        <PromoBanners />
         <CategoryGrid categories={categories} />
         <BestSellers plants={flagshipPlants} />
         <NeedLinks needs={needs} />
         <WhyUs />
         <Testimonials reviews={reviews} />
         <LocationsStrip locations={locations} />
-        <NewsletterSignup />
         <FaqSection faqs={siteFaqs} title="Frequently Asked Questions" theme="dark" />
       </div>
     </>
