@@ -13,7 +13,7 @@ export default function LocationsStrip({ locations }: { locations: LocationPage[
     <section className="py-10 md:py-14">
       <div className="container-page grid gap-8 md:grid-cols-2 md:items-center">
         <div>
-          <h2 className="font-heading text-2xl font-bold text-gold md:text-3xl">
+          <h2 className="font-heading text-2xl font-bold text-plaque-gold md:text-3xl">
             Proudly Serving Gwinnett County &amp; Beyond
           </h2>
           <p className="mt-2 text-sm text-white/70">
@@ -32,7 +32,7 @@ export default function LocationsStrip({ locations }: { locations: LocationPage[
           </div>
           <Link
             href="/locations/"
-            className="mt-5 inline-block text-sm font-semibold text-gold hover:underline"
+            className="mt-5 inline-block text-sm font-semibold text-plaque-gold hover:underline"
           >
             View All Service Areas →
           </Link>

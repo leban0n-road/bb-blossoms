@@ -18,14 +18,14 @@ export default function CategoryGrid({ categories }: { categories: Category[] })
         <div className="mb-10 text-center md:mb-14">
           <div className="flex items-center justify-center gap-4">
             <GoldFlourish />
-            <h2 className="font-heading text-2xl font-bold uppercase tracking-[0.08em] text-gold md:text-3xl">
+            <h2 className="font-heading text-2xl font-bold uppercase tracking-[0.08em] text-plaque-gold md:text-3xl">
               Shop by Category
             </h2>
             <div className="rotate-180">
               <GoldFlourish />
             </div>
           </div>
-          <p className="mt-3 text-xs font-semibold uppercase tracking-[0.25em] text-gold/75 md:text-sm">
+          <p className="mt-3 text-xs font-semibold uppercase tracking-[0.25em] text-plaque-gold/75 md:text-sm">
             Handpicked &amp; Grown for Georgia Yards
           </p>
           <div className="mt-4 flex items-center justify-center gap-2" aria-hidden="true">
@@ -73,7 +73,7 @@ export default function CategoryGrid({ categories }: { categories: Category[] })
         <div className="mt-10 text-center md:mt-14">
           <Link
             href="/shop/"
-            className="tap-target inline-flex items-center gap-2 rounded-full border-2 border-gold px-6 py-2.5 text-sm font-semibold uppercase tracking-wide text-gold transition-colors hover:bg-gold hover:text-primary-dark"
+            className="tap-target inline-flex items-center gap-2 rounded-full border-2 border-plaque-gold px-6 py-2.5 text-sm font-semibold uppercase tracking-wide text-plaque-gold transition-colors hover:bg-plaque-gold hover:text-primary-dark"
           >
             View All Plants →
           </Link>

@@ -70,7 +70,7 @@ export default function NeedLinks({ needs }: { needs: NeedCollection[] }) {
         <div className="mb-8 text-center md:mb-10">
           <div className="flex items-center justify-center gap-4">
             <GoldFlourish />
-            <h2 className="font-heading text-2xl font-bold text-gold md:text-3xl">
+            <h2 className="font-heading text-2xl font-bold text-plaque-gold md:text-3xl">
               Shop by Need
             </h2>
             <div className="rotate-180">

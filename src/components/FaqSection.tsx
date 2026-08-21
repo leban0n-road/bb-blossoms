@@ -26,7 +26,7 @@ export default function FaqSection({
         {includeSchema && <JsonLd data={faqPageSchema(faqs)} />}
         {title && (
           <h2
-            className={`font-heading text-2xl md:text-3xl mb-6 ${isDark ? "text-gold" : "text-primary"}`}
+            className={`font-heading text-2xl md:text-3xl mb-6 ${isDark ? "text-plaque-gold" : "text-primary"}`}
           >
             {title}
           </h2>

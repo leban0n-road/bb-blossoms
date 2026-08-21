@@ -13,7 +13,7 @@ export default function Testimonials({ reviews }: { reviews: Review[] }) {
   return (
     <section className="py-10 md:py-14">
       <div className="container-page">
-        <h2 className="font-heading text-2xl font-bold text-gold md:text-3xl">
+        <h2 className="font-heading text-2xl font-bold text-plaque-gold md:text-3xl">
           What Georgia Homeowners Are Saying
         </h2>
         <div className="-mx-5 mt-8 flex snap-x gap-4 overflow-x-auto px-5 pb-2 md:mx-0 md:grid md:grid-cols-3 md:gap-5 md:overflow-visible md:px-0">

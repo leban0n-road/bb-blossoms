@@ -10,14 +10,14 @@ export default function BestSellers({ plants }: { plants: Plant[] }) {
       <div className="container-page">
         <div className="mb-8 flex items-end justify-between">
           <div>
-            <h2 className="font-heading text-2xl font-bold text-gold md:text-3xl">
+            <h2 className="font-heading text-2xl font-bold text-plaque-gold md:text-3xl">
               Best Sellers
             </h2>
             <p className="mt-1 text-sm text-white/70">
               The varieties our customers plant again and again.
             </p>
           </div>
-          <Link href="/shop/" className="hidden text-sm font-semibold text-gold hover:underline sm:inline">
+          <Link href="/shop/" className="hidden text-sm font-semibold text-plaque-gold hover:underline sm:inline">
             Shop All →
           </Link>
         </div>

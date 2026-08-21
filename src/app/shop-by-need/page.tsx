@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import { getNeeds } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = buildMetadata({
@@ -15,13 +16,20 @@ export default function ShopByNeedHub() {
   const needs = getNeeds();
 
   return (
-    <div>
-      <Breadcrumbs items={[{ name: "Shop by Need", path: "/shop-by-need/" }]} />
-      <section className="container-page pb-4 pt-2">
-        <h1 className="font-heading text-3xl font-bold text-primary md:text-4xl">
+    <div className="page-frame">
+      {/* Visible breadcrumb removed; structured data kept for SEO (no
+          visible-UI footprint) — Home is still reachable via the main nav. */}
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Shop by Need", path: "/shop-by-need/" },
+        ])}
+      />
+      <section className="container-page pb-4 pt-8">
+        <h1 className="text-center font-heading text-3xl font-bold text-primary md:text-4xl">
           Shop by Need
         </h1>
-        <p className="mt-3 max-w-2xl text-neutral-dark/75">
+        <p className="mx-auto mt-3 max-w-2xl text-center text-neutral-dark/75">
           Start with your yard&rsquo;s problem, not a plant name. We&rsquo;ve curated our
           catalog into collections built around the reasons customers
           actually come to us — privacy, deer pressure, tough soil, and more.

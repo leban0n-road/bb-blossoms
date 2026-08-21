@@ -255,6 +255,121 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* Botanical corner/edge framing — individual product pages only. Source
+   crops come from a user-supplied reference photo. Each piece is a real
+   alpha-matted cutout (luminance-based matte against the source photo's
+   dark backdrop — see scripts/tmp-luma-matte.js — not a rectangular crop
+   or a CSS mask fade), so the leaf/petal silhouettes themselves are the
+   edge; no synthetic fade needed. The reference's own page mockup and
+   competitor branding were cropped out entirely before matting, verified
+   region-by-region before saving.
+
+   Only shown at >=1536px: container-page maxes out at 80rem (1280px), so
+   below that width there's no genuine empty margin outside the real
+   content column to place these in without risking overlap on actual
+   text/images — hiding them below this breakpoint is a hard requirement,
+   not a nicety. */
+.product-page-frame {
+  position: relative;
+}
+.pf-decor {
+  position: absolute;
+  pointer-events: none;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: none;
+  z-index: 0;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+}
+.pf-content {
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 1536px) {
+  .pf-decor {
+    display: block;
+  }
+  .pf-corner-tl {
+    top: 0;
+    left: 0;
+    width: 110px;
+    height: 110px;
+    background-image: url("/images/decor/corner-tl.png");
+  }
+  .pf-corner-tr {
+    top: 0;
+    right: 0;
+    width: 110px;
+    height: 110px;
+    background-image: url("/images/decor/corner-tr.png");
+  }
+  .pf-corner-bl {
+    bottom: 0;
+    left: 0;
+    width: 180px;
+    height: 180px;
+    background-image: url("/images/decor/corner-bl.png");
+  }
+  .pf-corner-br {
+    bottom: 0;
+    right: 0;
+    width: 180px;
+    height: 180px;
+    background-image: url("/images/decor/corner-br.png");
+  }
+  .pf-edge-l {
+    top: 50%;
+    left: 0;
+    width: 100px;
+    height: 240px;
+    transform: translateY(-50%);
+    background-image: url("/images/decor/edge-l.png");
+  }
+  .pf-edge-r {
+    top: 50%;
+    right: 0;
+    width: 100px;
+    height: 240px;
+    transform: translateY(-50%);
+    background-image: url("/images/decor/edge-r.png");
+  }
+}
+
+/* Page-level background, shared across every hub/listing page that's asked
+   for it: the 9 category pages (/shop/[category]/), plus /shop-by-need/,
+   /locations/, /services/, and /guides/. (Named .category-page-frame
+   originally when it was category-only; renamed to .page-frame once it
+   widened past that scope.)
+   Source: public/images/landing-page/white-background.png — a clean,
+   purpose-made decorative frame (botanical border on a plain off-white
+   field, no baked-in mockup/competitor content, unlike the earlier
+   reference image), so cover+center is safe here without the pixel-
+   alignment risk that ruled it out for the product-page background.
+   background-attachment: fixed avoids any seam/repeat regardless of how
+   tall each page's content ends up; falls back to scroll on mobile since
+   fixed attachment is unreliable on iOS Safari. NOTE: each page's header
+   (h1 + intro paragraph) sits directly on this background with no scrim,
+   per "don't change existing content styling" on the pages where that was
+   said explicitly — the header's dark-text colors keep strong contrast
+   wherever the image's plain field lands, but depending on viewport
+   height it may land partly over the image's own leaf border instead;
+   flagged rather than silently patched since fixing it would mean adding
+   a scrim to the header section. */
+.page-frame {
+  background-image: url("/images/landing-page/white-background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--color-neutral-bg);
+  background-attachment: fixed;
+}
+@media (max-width: 767px) {
+  .page-frame {
+    background-attachment: scroll;
+  }
+}
+
 /* Legibility aid for text sitting directly on photography with a light
    scrim — used by the hero headline/subtext instead of a darker overlay. */
 .text-shadow-hero {

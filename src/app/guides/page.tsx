@@ -15,7 +15,7 @@ export default function GuidesHub() {
   const guides = getGuides();
 
   return (
-    <div>
+    <div className="page-frame">
       <Breadcrumbs items={[{ name: "Guides", path: "/guides/" }]} />
       <section className="container-page pb-4 pt-2">
         <h1 className="font-heading text-3xl font-bold text-primary md:text-4xl">

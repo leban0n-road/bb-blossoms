@@ -129,7 +129,17 @@ export default function PurchaseBox({ plant }: { plant: Plant }) {
       <button
         type="button"
         onClick={() => {
-          addToCart(quantity);
+          addToCart({
+            plantSlug: plant.slug,
+            category: plant.category,
+            plantName: plant.name,
+            image: plant.image,
+            sizeLabel: sizeOptions[sizeIndex].label,
+            unitPrice,
+            quantity,
+            installation,
+            installationFee: installation ? INSTALLATION_FEE : 0,
+          });
           setAdded(true);
           setTimeout(() => setAdded(false), 2500);
         }}

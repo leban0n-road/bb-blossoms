@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Breadcrumbs from "@/components/Breadcrumbs";
-import FaqSection from "@/components/FaqSection";
+import JsonLd from "@/components/JsonLd";
 import ShopGrid from "@/components/shop/ShopGrid";
 import { LinkButton } from "@/components/ui/Button";
 import {
@@ -12,6 +11,7 @@ import {
   getPlantsByCategory,
 } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return getCategories().map((c) => ({ category: c.slug }));
@@ -47,22 +47,32 @@ export default async function CategoryPage({
   );
   const relatedGuides = getGuidesForCategory(category.slug);
 
+  // Privacy & Screening keeps one narrow difference from the other 8: its
+  // intro paragraph color was separately matched to "Shop ... by Need"
+  // (text-primary) in earlier work. Every other page-level treatment below
+  // (no breadcrumb/icon, centered intro, no FAQ section, the .page-frame
+  // background) now applies to all 9 categories.
+  const isPrivacyScreeningPage = category.slug === "privacy-screening";
+
+  const breadcrumbItems = [
+    { name: "Shop", path: "/shop/" },
+    { name: category.shortName, path: `/shop/${category.slug}/` },
+  ];
+
   return (
-    <div>
-      <Breadcrumbs
-        items={[
-          { name: "Shop", path: "/shop/" },
-          { name: category.shortName, path: `/shop/${category.slug}/` },
-        ]}
-      />
-      <section className="container-page pb-4 pt-2">
-        <span className="text-4xl" aria-hidden="true">
-          {category.icon}
-        </span>
-        <h1 className="mt-2 font-heading text-3xl font-bold text-primary md:text-4xl">
+    <div className="page-frame">
+      {/* Visible breadcrumb nav removed sitewide across category pages, but
+          the structured data stays — pure SEO value (rich-result
+          eligibility) with no visible-UI footprint. Home/Shop navigation is
+          still reachable via the main nav bar, unaffected by this. */}
+      <JsonLd data={breadcrumbSchema([{ name: "Home", path: "/" }, ...breadcrumbItems])} />
+      <section className="container-page pb-4 pt-8">
+        <h1 className="text-center font-heading text-3xl font-bold text-primary md:text-4xl">
           {category.name}
         </h1>
-        <p className="mt-3 max-w-3xl text-neutral-dark/75 leading-relaxed">
+        <p
+          className={`mx-auto mt-3 max-w-3xl text-center leading-relaxed ${isPrivacyScreeningPage ? "text-primary" : "text-neutral-dark/75"}`}
+        >
           {category.intro}
         </p>
       </section>
@@ -115,8 +125,6 @@ export default async function CategoryPage({
           </div>
         </section>
       )}
-
-      <FaqSection faqs={category.faqs} title={`${category.shortName} FAQs`} />
     </div>
   );
 }

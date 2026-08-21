@@ -2,10 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import FaqSection from "@/components/FaqSection";
 import JsonLd from "@/components/JsonLd";
 import PlantCard from "@/components/PlantCard";
-import { LinkButton } from "@/components/ui/Button";
+import QuoteCallButtons from "@/components/QuoteCallButtons";
 import { getLocationBySlug, getLocations, getPlantBySlug } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { localBusinessForLocationSchema } from "@/lib/schema";
@@ -70,12 +69,7 @@ export default async function LocationPage({
           {location.intro}
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
-          <LinkButton href="/quote/" variant="primary">
-            Get a Free Quote
-          </LinkButton>
-          <LinkButton href={siteConfig.phoneHref} variant="outline">
-            📞 Call {siteConfig.phone}
-          </LinkButton>
+          <QuoteCallButtons gradientId="location-icon-gold" />
         </div>
       </section>
 
@@ -153,8 +147,6 @@ export default async function LocationPage({
           </Link>
         </section>
       )}
-
-      <FaqSection faqs={location.faqs} title={`${location.city} FAQs`} />
     </div>
   );
 }

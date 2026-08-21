@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Check } from "lucide-react";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FaqSection from "@/components/FaqSection";
@@ -52,6 +53,21 @@ const specRows = (plant: NonNullable<ReturnType<typeof getPlantBySlug>>) => [
   ["Native to Georgia", plant.native ? "Yes" : "No"],
 ];
 
+// Four short, data-driven facts for the photo-hero checklist — pulled from
+// fields every Plant record already has, not invented per-product copy.
+const productHighlights = (plant: NonNullable<ReturnType<typeof getPlantBySlug>>) => {
+  const highlights = [
+    plant.growthRate,
+    plant.sun,
+    `Cold hardy to USDA Zone ${plant.usdaZone}`,
+  ];
+  if (plant.deerResistant) highlights.push("Deer resistant");
+  else if (plant.native) highlights.push("Native to Georgia");
+  else if (plant.petSafe) highlights.push("Pet safe");
+  else highlights.push("Georgia grown & ready to plant");
+  return highlights;
+};
+
 export default async function PlantPage({
   params,
 }: {
@@ -67,8 +83,65 @@ export default async function PlantPage({
   const gallery = [plant.image, ...(plant.images ?? [])];
 
   return (
-    <div>
+    <div className="product-page-frame">
+      <span className="pf-decor pf-corner-tl" aria-hidden="true" />
+      <span className="pf-decor pf-corner-tr" aria-hidden="true" />
+      <span className="pf-decor pf-edge-l" aria-hidden="true" />
+      <span className="pf-decor pf-edge-r" aria-hidden="true" />
+      <span className="pf-decor pf-corner-bl" aria-hidden="true" />
+      <span className="pf-decor pf-corner-br" aria-hidden="true" />
+      <div className="pf-content">
       <JsonLd data={productSchema(plant)} />
+
+      {/* Photo hero: product photo as a bounded background behind the name/
+          tagline/highlights (left), a fully solid white price card (right)
+          — the card is its own sibling box, not overlaid on the photo, so
+          it's guaranteed 100% opaque with zero photo showing through, and
+          the two columns naturally match height via grid stretch. */}
+      <section className="relative isolate">
+        <div className="grid lg:grid-cols-2">
+          <div className="relative isolate min-h-[440px] overflow-hidden">
+            <Image
+              src={plant.image}
+              alt=""
+              aria-hidden="true"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover"
+            />
+            {/* Flat scrim (not a directional fade) — the photo is already
+                bounded to this column, so there's no shared background with
+                the price card to preserve; a uniform overlay guarantees
+                legibility for every wrapped line, not just the first. */}
+            <div className="absolute inset-0 bg-black/50" />
+            <div className="relative z-10 flex h-full flex-col justify-center p-8 md:p-12">
+              <h1 className="text-shadow-hero font-heading text-3xl font-bold text-white md:text-4xl">
+                {plant.name}
+              </h1>
+              <p className="text-shadow-hero mt-2 text-white/90">
+                For sale in {siteConfig.primaryCity}, {siteConfig.primaryState}
+              </p>
+              <ul className="mt-5 space-y-2">
+                {productHighlights(plant).map((item) => (
+                  <li
+                    key={item}
+                    className="text-shadow-hero flex items-center gap-2 text-sm font-medium text-white"
+                  >
+                    <Check aria-hidden="true" size={16} className="shrink-0 text-plaque-gold" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className="flex items-center bg-white p-6 md:p-10">
+            <PurchaseBox plant={plant} />
+          </div>
+        </div>
+      </section>
+
       <Breadcrumbs
         items={[
           { name: "Shop", path: "/shop/" },
@@ -86,7 +159,6 @@ export default async function PlantPage({
               src={gallery[0]}
               alt={`${plant.name} in a ${plant.potSize} container, available for sale at ${siteConfig.brandName}`}
               fill
-              priority
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover"
             />
@@ -112,16 +184,12 @@ export default async function PlantPage({
         </div>
 
         <div>
-          <h1 className="font-heading text-3xl font-bold text-primary md:text-4xl">
-            {plant.name} for Sale in {siteConfig.primaryCity}, {siteConfig.primaryState}
-          </h1>
+          <h2 className="font-heading text-2xl font-bold text-primary">
+            About {plant.name}
+          </h2>
           <p className="mt-3 leading-relaxed text-neutral-dark/75">
             {plant.description}
           </p>
-
-          <div className="mt-6">
-            <PurchaseBox plant={plant} />
-          </div>
 
           <p className="mt-4 rounded-xl bg-primary/5 p-3 text-sm text-neutral-dark/70">
             🚚 Delivery available to {siteConfig.primaryCity} and all of
@@ -200,6 +268,7 @@ export default async function PlantPage({
       )}
 
       <FaqSection faqs={plant.faqs} title={`${plant.name} FAQs`} />
+      </div>
     </div>
   );
 }

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import FaqSection from "@/components/FaqSection";
 import PlantCard from "@/components/PlantCard";
 import { LinkButton } from "@/components/ui/Button";
 import { getNeedBySlug, getNeeds, getPlantsForNeed } from "@/lib/content";
@@ -75,8 +74,6 @@ export default async function NeedPage({
           </div>
         )}
       </section>
-
-      <FaqSection faqs={need.faqs} title={`${need.name} FAQs`} />
     </div>
   );
 }

@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import StickyMobileCta from "@/components/layout/StickyMobileCta";
+import ScrollToTop from "@/components/layout/ScrollToTop";
 import JsonLd from "@/components/JsonLd";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
 import { getCategories } from "@/lib/content";
@@ -84,6 +85,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           Skip to content
         </a>
 
+        <ScrollToTop />
         <AnnouncementBar />
         <Header categories={categories} />
         <main id="main-content" className="flex-1">
