@@ -65,30 +65,17 @@ export default function ReviewsPage() {
             {rating} out of 5 ({reviews.length} reviews)
           </span>
         </div>
-        <p className="mx-auto mt-3 max-w-xl text-xs text-neutral-dark/50">
-          {/* TODO: replace with real, verified customer reviews before launch. */}
-          Reviews shown are placeholder examples pending verified customer
-          submissions.
-        </p>
       </section>
 
-      <section className="container-page grid gap-5 pb-16 md:grid-cols-2 lg:grid-cols-3">
-        {reviews.map((review) => (
-          <div key={review.author + review.date} className="rounded-2xl border border-border bg-white p-6">
-            <Stars rating={review.rating} />
-            <p className="mt-3 font-heading font-semibold text-neutral-dark">
-              {review.title}
-            </p>
-            <p className="mt-2 text-sm leading-relaxed text-neutral-dark/75">
-              &ldquo;{review.body}&rdquo;
-            </p>
-            <p className="mt-4 text-xs font-semibold text-neutral-dark/50">
-              {review.author}
-              {review.location ? ` — ${review.location}` : ""}
-              {review.verified ? " · Verified Customer" : ""}
-            </p>
+      <section className="container-page grid place-items-center pb-16">
+        <div className="w-full max-w-sm rounded-2xl border border-border bg-white p-6 text-center">
+          <div className="flex justify-center">
+            <Stars rating={5} />
           </div>
-        ))}
+          <p className="mt-3 text-sm leading-relaxed text-neutral-dark/75">
+            Review&rsquo;s coming soon
+          </p>
+        </div>
       </section>
 
       <section className="container-page pb-16">
