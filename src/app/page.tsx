@@ -7,14 +7,12 @@ import NeedLinks from "@/components/home/NeedLinks";
 import WhyUs from "@/components/home/WhyUs";
 import Testimonials from "@/components/home/Testimonials";
 import LocationsStrip from "@/components/home/LocationsStrip";
-import FaqSection from "@/components/FaqSection";
 import {
   getCategories,
   getFlagshipPlants,
   getLocations,
   getNeeds,
   getReviews,
-  getSiteFaqs,
 } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
@@ -31,7 +29,6 @@ export default function Home() {
   const locations = getLocations();
   const flagshipPlants = getFlagshipPlants();
   const reviews = getReviews();
-  const siteFaqs = getSiteFaqs();
 
   return (
     <>
@@ -44,7 +41,6 @@ export default function Home() {
         <WhyUs />
         <Testimonials reviews={reviews} />
         <LocationsStrip locations={locations} />
-        <FaqSection faqs={siteFaqs} title="Frequently Asked Questions" theme="dark" />
       </div>
     </>
   );

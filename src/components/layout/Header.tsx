@@ -63,7 +63,7 @@ export default function Header({ categories }: { categories: Category[] }) {
           className="group flex shrink-0 items-center gap-2"
         >
           <Leaf aria-hidden="true" size={22} strokeWidth={2} className="-rotate-12 text-primary" />
-          <span className="font-heading text-lg font-bold text-black group-hover:text-blossom-pink group-focus-visible:text-blossom-pink md:text-xl">
+          <span className="font-heading text-lg font-bold text-black group-hover:text-accent group-focus-visible:text-accent md:text-xl">
             {siteConfig.brandName}
           </span>
         </Link>
@@ -75,7 +75,7 @@ export default function Header({ categories }: { categories: Category[] }) {
             onMouseLeave={() => setShopOpen(false)}
           >
             <button
-              className="nav-link tap-target flex items-center gap-1 text-sm font-semibold text-black hover:text-blossom-pink"
+              className="nav-link tap-target flex items-center gap-1 text-sm font-semibold text-black hover:text-accent"
               aria-expanded={shopOpen}
               onClick={() => setShopOpen((v) => !v)}
             >
@@ -115,19 +115,19 @@ export default function Header({ categories }: { categories: Category[] }) {
               </div>
             )}
           </div>
-          <Link href="/shop-by-need/" className="nav-link text-sm font-semibold text-black hover:text-blossom-pink">
+          <Link href="/shop-by-need/" className="nav-link text-sm font-semibold text-black hover:text-accent">
             Shop by Need
           </Link>
-          <Link href="/locations/" className="nav-link text-sm font-semibold text-black hover:text-blossom-pink">
+          <Link href="/locations/" className="nav-link text-sm font-semibold text-black hover:text-accent">
             Locations
           </Link>
-          <Link href="/services/" className="nav-link text-sm font-semibold text-black hover:text-blossom-pink">
+          <Link href="/services/" className="nav-link text-sm font-semibold text-black hover:text-accent">
             Services
           </Link>
-          <Link href="/guides/" className="nav-link text-sm font-semibold text-black hover:text-blossom-pink">
+          <Link href="/guides/" className="nav-link text-sm font-semibold text-black hover:text-accent">
             Guides
           </Link>
-          <Link href="/about/" className="nav-link text-sm font-semibold text-black hover:text-blossom-pink">
+          <Link href="/about/" className="nav-link text-sm font-semibold text-black hover:text-accent">
             About
           </Link>
         </nav>

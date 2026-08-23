@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import { getGuides } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = buildMetadata({
@@ -16,12 +17,19 @@ export default function GuidesHub() {
 
   return (
     <div className="page-frame">
-      <Breadcrumbs items={[{ name: "Guides", path: "/guides/" }]} />
-      <section className="container-page pb-4 pt-2">
-        <h1 className="font-heading text-3xl font-bold text-primary md:text-4xl">
+      {/* Visible breadcrumb removed; structured data kept for SEO (no
+          visible-UI footprint) — Home is still reachable via the main nav. */}
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Guides", path: "/guides/" },
+        ])}
+      />
+      <section className="container-page pb-4 pt-8">
+        <h1 className="text-center font-heading text-3xl font-bold text-primary md:text-4xl">
           Growing Guides
         </h1>
-        <p className="mt-3 max-w-2xl text-neutral-dark/75">
+        <p className="mx-auto mt-3 max-w-2xl text-center text-neutral-dark/75">
           Practical, {siteConfig.primaryStateName}-specific planting and care
           advice from the {siteConfig.brandName} team — no generic national
           gardening tips that don&rsquo;t work in Zone {siteConfig.usdaZone}.

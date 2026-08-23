@@ -16,7 +16,7 @@ export const siteConfig = {
   // NAP — keep identical across every page, footer, and schema block.
   phone: "(770) 555-0142",
   phoneHref: "tel:+17705550142",
-  email: "hello@bbblossoms.com",
+  email: "info@bbblossoms.com",
   address: {
     street: "4820 Nursery Row",
     city: "Lawrenceville",

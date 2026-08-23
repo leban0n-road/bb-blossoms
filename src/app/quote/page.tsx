@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import QuoteForm from "@/components/quote/QuoteForm";
 import { buildMetadata } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = buildMetadata({
@@ -12,10 +13,22 @@ export const metadata: Metadata = buildMetadata({
 
 export default function QuotePage() {
   return (
-    <div>
-      <Breadcrumbs items={[{ name: "Get a Quote", path: "/quote/" }]} />
-      <section className="container-page grid gap-10 pb-16 pt-2 lg:grid-cols-[1fr_1.2fr]">
-        <div>
+    <div className="page-frame">
+      {/* Visible breadcrumb removed; structured data kept for SEO (no
+          visible-UI footprint) — Home is still reachable via the main nav. */}
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Get a Quote", path: "/quote/" },
+        ])}
+      />
+      {/* DOM order stays heading-then-form (correct mobile stacking and
+          reading order); lg:order-* flips only the visual desktop position
+          so the form ends up on the left, heading/icons on the right. The
+          column-width ratio flips with it (1.2fr now tracks the form,
+          which has more content, same as before the swap). */}
+      <section className="container-page grid gap-10 pb-16 pt-8 lg:grid-cols-[1.2fr_1fr]">
+        <div className="lg:order-2">
           <h1 className="font-heading text-3xl font-bold text-primary md:text-4xl">
             Get a Free Quote
           </h1>
@@ -35,7 +48,9 @@ export default function QuotePage() {
             </p>
           </div>
         </div>
-        <QuoteForm />
+        <div className="lg:order-1">
+          <QuoteForm />
+        </div>
       </section>
     </div>
   );

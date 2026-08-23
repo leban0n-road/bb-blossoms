@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Check } from "lucide-react";
+import { Check, Leaf } from "lucide-react";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FaqSection from "@/components/FaqSection";
@@ -239,8 +239,9 @@ export default async function PlantPage({
                   <Link
                     key={need.slug}
                     href={`/shop-by-need/${need.slug}/`}
-                    className="rounded-full border border-accent-light bg-accent-light/15 px-4 py-1.5 text-xs font-semibold text-accent-dark hover:bg-accent-light/30"
+                    className="inline-flex items-center gap-1.5 rounded-full border-[1.5px] border-gold bg-transparent px-4 py-1.5 text-xs font-semibold text-primary transition-colors hover:bg-gold/15"
                   >
+                    <Leaf aria-hidden="true" size={12} className="shrink-0 text-gold" />
                     {need.name}
                   </Link>
                 ))}

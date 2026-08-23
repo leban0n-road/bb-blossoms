@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import JsonLd from "@/components/JsonLd";
 import ContactForm from "@/components/contact/ContactForm";
 import { buildMetadata } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = buildMetadata({
@@ -16,9 +17,16 @@ export default function ContactPage() {
   );
 
   return (
-    <div>
-      <Breadcrumbs items={[{ name: "Contact", path: "/contact/" }]} />
-      <section className="container-page grid gap-10 pb-16 pt-2 lg:grid-cols-2">
+    <div className="page-frame">
+      {/* Visible breadcrumb removed; structured data kept for SEO (no
+          visible-UI footprint) — Home is still reachable via the main nav. */}
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Contact", path: "/contact/" },
+        ])}
+      />
+      <section className="container-page grid gap-10 pb-16 pt-8 lg:grid-cols-2">
         <div>
           <h1 className="font-heading text-3xl font-bold text-primary md:text-4xl">
             Contact Us

@@ -27,6 +27,11 @@
      border, underline indicators) — not exposed as a Tailwind utility
      since it's applied via plain CSS in the nav-specific rules below. */
   --color-nav-bronze: #b8944a;
+  /* Warm cream/parchment card surface — the product page's "boutique"
+     purchase box only. Distinct from --color-neutral-bg (the page's own
+     near-white base), so the card still reads as a distinct warm surface
+     sitting on the white page rather than blending in. */
+  --color-parchment: #fbf6ea;
 
   --font-heading: var(--font-fraunces);
   --font-body: var(--font-inter);
@@ -47,6 +52,7 @@
   --color-gold: var(--color-gold);
   --color-blossom-pink: var(--color-blossom-pink);
   --color-plaque-gold: var(--color-plaque-gold);
+  --color-parchment: var(--color-parchment);
 
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);
@@ -203,6 +209,22 @@ h1, h2, h3, h4, h5, h6 {
 .btn-need:hover .icon-hover-spin,
 .btn-need:focus-visible .icon-hover-spin {
   animation: icon-hover-spin 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 1;
+}
+
+/* Click/tap press feedback — footer social icon buttons only (they don't
+   navigate anywhere, so this is the only feedback a click gives). A real
+   standalone animation class (unlike .icon-hover-overshoot above, which is
+   only ever applied via a parent :hover/:focus-visible rule and can't be
+   triggered directly) — toggled by SocialIconButton's own onClick/state.
+   Same spring easing as the rest of the site's icon motion for consistency. */
+@keyframes icon-press-bounce {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.85); }
+  70% { transform: scale(1.12); }
+  100% { transform: scale(1); }
+}
+.icon-press-bounce {
+  animation: icon-press-bounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1;
 }
 
 /* Why BB Blossoms cards: same hover combo + glow-brighten as .btn-need,

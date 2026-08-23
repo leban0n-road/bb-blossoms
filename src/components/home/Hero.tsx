@@ -3,15 +3,17 @@ import Link from "next/link";
 import { FileText, Leaf, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import IconSparks from "@/components/home/IconSparks";
+import heroImage from "../../../public/images/landing-page/03.jpg";
 
 export default function Hero() {
   return (
-    <section className="relative isolate min-h-[520px] overflow-hidden bg-accent md:min-h-[620px]">
+    <section className="relative isolate min-h-[520px] overflow-hidden bg-primary-dark md:min-h-[620px]">
       <Image
-        src="/images/landing-page/03.jpg"
+        src={heroImage}
         alt="Sunlit greenhouse walkway at BB Blossoms lined with hydrangeas, dahlias, and hanging flower baskets"
         fill
         priority
+        placeholder="blur"
         sizes="100vw"
         quality={95}
         className="object-cover object-center"

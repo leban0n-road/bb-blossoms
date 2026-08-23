@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import Link from "next/link";
+import { MessageSquare } from "lucide-react";
 import JsonLd from "@/components/JsonLd";
-import { LinkButton } from "@/components/ui/Button";
 import { getAverageRating, getReviews } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
+import { breadcrumbSchema } from "@/lib/schema";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = buildMetadata({
@@ -44,20 +45,27 @@ export default function ReviewsPage() {
   };
 
   return (
-    <div>
+    <div className="page-frame">
       <JsonLd data={reviewListSchema} />
-      <Breadcrumbs items={[{ name: "Reviews", path: "/reviews/" }]} />
-      <section className="container-page pb-4 pt-2">
+      {/* Visible breadcrumb removed; structured data kept for SEO (no
+          visible-UI footprint) — Home is still reachable via the main nav. */}
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Reviews", path: "/reviews/" },
+        ])}
+      />
+      <section className="container-page pb-4 pt-8 text-center">
         <h1 className="font-heading text-3xl font-bold text-primary md:text-4xl">
           Customer Reviews
         </h1>
-        <div className="mt-3 flex items-center gap-3">
+        <div className="mt-3 flex items-center justify-center gap-3">
           <Stars rating={Math.round(rating)} />
           <span className="text-sm font-semibold text-neutral-dark/70">
             {rating} out of 5 ({reviews.length} reviews)
           </span>
         </div>
-        <p className="mt-3 max-w-xl text-xs text-neutral-dark/50">
+        <p className="mx-auto mt-3 max-w-xl text-xs text-neutral-dark/50">
           {/* TODO: replace with real, verified customer reviews before launch. */}
           Reviews shown are placeholder examples pending verified customer
           submissions.
@@ -93,7 +101,28 @@ export default function ReviewsPage() {
             homeowners find us.
           </p>
           <div className="mt-5 flex justify-center">
-            <LinkButton href="/contact/">Leave a Review</LinkButton>
+            <svg width="0" height="0" aria-hidden="true" className="absolute">
+              <defs>
+                <linearGradient id="review-icon-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#f4d58d" />
+                  <stop offset="50%" stopColor="#c9a227" />
+                  <stop offset="100%" stopColor="#8b6914" />
+                </linearGradient>
+              </defs>
+            </svg>
+            <Link
+              href="/contact/"
+              className="btn-need tap-target inline-flex items-center gap-2 rounded-xl border-[1.5px] border-gold bg-primary-dark/75 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-dark/90"
+            >
+              <MessageSquare
+                aria-hidden="true"
+                size={17}
+                strokeWidth={1.75}
+                color="url(#review-icon-gold)"
+                className="need-icon-glow icon-idle-sway icon-hover-overshoot shrink-0"
+              />
+              Leave a Review
+            </Link>
           </div>
         </div>
       </section>
