@@ -26,12 +26,23 @@ export default function PurchaseBox({ plant }: { plant: Plant }) {
     ? plant.potSizeOptions
     : [{ label: plant.potSize, price: plant.salePrice ?? plant.price }];
 
-  const [sizeIndex, setSizeIndex] = useState(0);
+  // plant.salePrice/price are pegged to plant.potSize specifically — the
+  // per-size potSizeOptions array has no sale data of its own. Default to
+  // whichever option is that sale-eligible size (falls back to the first
+  // option if potSize isn't listed, which shouldn't happen but keeps this
+  // safe either way).
+  const defaultSizeIndex = Math.max(
+    0,
+    sizeOptions.findIndex((opt) => opt.label === plant.potSize)
+  );
+  const [sizeIndex, setSizeIndex] = useState(defaultSizeIndex);
   const [quantity, setQuantity] = useState(1);
   const [installation, setInstallation] = useState(false);
   const [added, setAdded] = useState(false);
 
-  const unitPrice = sizeOptions[sizeIndex].price;
+  const selectedOption = sizeOptions[sizeIndex];
+  const isSaleSize = Boolean(plant.salePrice) && selectedOption.label === plant.potSize;
+  const unitPrice = isSaleSize ? plant.salePrice! : selectedOption.price;
   const total = useMemo(() => {
     const base = unitPrice * quantity;
     const install = installation ? INSTALLATION_FEE * quantity : 0;
@@ -45,7 +56,7 @@ export default function PurchaseBox({ plant }: { plant: Plant }) {
       </div>
 
       <div className="flex items-baseline gap-2">
-        {plant.salePrice ? (
+        {isSaleSize ? (
           <>
             <span className="font-heading text-3xl font-bold text-sale">
               ${plant.salePrice}
@@ -169,7 +180,7 @@ export default function PurchaseBox({ plant }: { plant: Plant }) {
             category: plant.category,
             plantName: plant.name,
             image: plant.image,
-            sizeLabel: sizeOptions[sizeIndex].label,
+            sizeLabel: selectedOption.label,
             unitPrice,
             quantity,
             installation,
