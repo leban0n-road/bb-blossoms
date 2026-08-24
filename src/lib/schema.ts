@@ -13,6 +13,7 @@ function openingHoursSpecification() {
 
 export function organizationSchema() {
   const locations = getLocations();
+  const reviews = getReviews();
   return {
     "@context": "https://schema.org",
     "@type": "GardenCenter",
@@ -43,11 +44,16 @@ export function organizationSchema() {
       name: `${l.city}, ${l.stateAbbr}`,
     })),
     sameAs: Object.values(siteConfig.social),
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: getAverageRating(),
-      reviewCount: getReviews().length,
-    },
+    // Omit entirely rather than publish a fabricated rating when there
+    // are no reviews yet — a 0-review aggregateRating is misleading
+    // structured data.
+    ...(reviews.length > 0 && {
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: getAverageRating(),
+        reviewCount: reviews.length,
+      },
+    }),
   };
 }
 
@@ -96,7 +102,8 @@ export function faqPageSchema(faqs: Faq[]) {
 }
 
 export function productSchema(plant: Plant) {
-  const reviews = getReviews().slice(0, 3);
+  const allReviews = getReviews();
+  const topReviews = allReviews.slice(0, 3);
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -123,22 +130,26 @@ export function productSchema(plant: Plant) {
         name: siteConfig.brandName,
       },
     },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: getAverageRating(),
-      reviewCount: getReviews().length,
-    },
-    review: reviews.map((r) => ({
-      "@type": "Review",
-      author: { "@type": "Person", name: r.author },
-      datePublished: r.date,
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: r.rating,
-        bestRating: 5,
+    // Omit aggregateRating/review entirely rather than publish fabricated
+    // data when there are no reviews yet.
+    ...(allReviews.length > 0 && {
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: getAverageRating(),
+        reviewCount: allReviews.length,
       },
-      reviewBody: r.body,
-    })),
+      review: topReviews.map((r) => ({
+        "@type": "Review",
+        author: { "@type": "Person", name: r.author },
+        datePublished: r.date,
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: r.rating,
+          bestRating: 5,
+        },
+        reviewBody: r.body,
+      })),
+    }),
   };
 }
 

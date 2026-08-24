@@ -26,7 +26,9 @@ export default function ReviewsPage() {
   const reviews = getReviews();
   const rating = getAverageRating();
 
-  const reviewListSchema = {
+  // Omit aggregateRating/review from the schema entirely rather than
+  // publish fabricated data when there are no reviews yet.
+  const reviewListSchema = reviews.length > 0 ? {
     "@context": "https://schema.org",
     "@type": "Product",
     name: `${siteConfig.brandName} Service`,
@@ -42,11 +44,11 @@ export default function ReviewsPage() {
       reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5 },
       reviewBody: r.body,
     })),
-  };
+  } : null;
 
   return (
     <div className="page-frame">
-      <JsonLd data={reviewListSchema} />
+      {reviewListSchema && <JsonLd data={reviewListSchema} />}
       {/* Visible breadcrumb removed; structured data kept for SEO (no
           visible-UI footprint) — Home is still reachable via the main nav. */}
       <JsonLd
@@ -59,15 +61,21 @@ export default function ReviewsPage() {
         <h1 className="font-heading text-3xl font-bold text-primary md:text-4xl">
           Customer Reviews
         </h1>
-        <div className="mt-3 flex flex-col items-center gap-1">
-          <Stars rating={Math.round(rating)} />
-          <span className="text-sm font-semibold text-neutral-dark/70">
-            {rating} out of 5 ({reviews.length} reviews)
-          </span>
-          <span className="text-[11px] font-semibold uppercase tracking-wide text-neutral-dark/40">
-            Demo of reviews
-          </span>
-        </div>
+        {reviews.length > 0 ? (
+          <div className="mt-3 flex flex-col items-center gap-1">
+            <Stars rating={Math.round(rating)} />
+            <span className="text-sm font-semibold text-neutral-dark/70">
+              {rating} out of 5 ({reviews.length} review{reviews.length === 1 ? "" : "s"})
+            </span>
+            <span className="text-[11px] font-semibold uppercase tracking-wide text-neutral-dark/40">
+              Demo of reviews
+            </span>
+          </div>
+        ) : (
+          <p className="mt-3 text-sm font-semibold text-neutral-dark/60">
+            No reviews yet
+          </p>
+        )}
       </section>
 
       <section className="container-page grid place-items-center pb-16">

@@ -116,8 +116,12 @@ export function getSiteFaqs(): Faq[] {
   return siteFaqs;
 }
 
+// 0 is not a valid rating (reviews are 1-5) — it's an unambiguous "no
+// reviews yet" sentinel rather than a fabricated average. Callers that
+// surface this to users or search engines should check getReviews().length
+// rather than trust a fake number here.
 export function getAverageRating(): number {
-  if (!reviews.length) return 5;
+  if (!reviews.length) return 0;
   const total = reviews.reduce((sum, r) => sum + r.rating, 0);
   return Math.round((total / reviews.length) * 10) / 10;
 }
