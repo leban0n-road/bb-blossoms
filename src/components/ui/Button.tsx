@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 
-type Variant = "primary" | "secondary" | "outline" | "outline-light" | "ghost";
+type Variant = "primary" | "secondary" | "outline" | "outline-light" | "ghost" | "metallic";
 
 const variantClasses: Record<Variant, string> = {
   primary:
@@ -15,6 +15,11 @@ const variantClasses: Record<Variant, string> = {
   "outline-light":
     "border-2 border-white/80 text-white hover:bg-white hover:text-primary-dark bg-transparent",
   ghost: "bg-white/10 text-white hover:bg-white/20",
+  // Gold-bordered plaque look used for secondary/nav-style CTAs on light
+  // backgrounds — matches FAQ's "Contact Us" and Reviews' "Leave a Review"
+  // buttons (bg-white/5 there is for the dark homepage backdrop instead).
+  metallic:
+    "btn-need border-[1.5px] border-gold bg-primary-dark/75 text-white hover:bg-primary-dark/90",
 };
 
 const base =

@@ -71,16 +71,16 @@ export default function PurchaseBox({ plant }: { plant: Plant }) {
                 key={opt.label}
                 type="button"
                 onClick={() => setSizeIndex(i)}
-                className={`tap-target inline-flex items-center gap-1.5 rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
-                  selected
-                    ? "border-primary bg-primary text-white"
-                    : "border-border bg-white text-neutral-dark hover:border-primary"
+                className={`btn-delivery-metallic tap-target inline-flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium ${
+                  selected ? "is-selected text-white" : "text-neutral-dark"
                 }`}
               >
-                {selected && (
-                  <Leaf aria-hidden="true" size={12} className="shrink-0 text-plaque-gold" />
-                )}
-                {opt.label}
+                <span className="inline-flex items-center gap-1.5">
+                  {selected && (
+                    <Leaf aria-hidden="true" size={12} className="shrink-0 text-plaque-gold" />
+                  )}
+                  {opt.label}
+                </span>
               </button>
             );
           })}
@@ -178,9 +178,9 @@ export default function PurchaseBox({ plant }: { plant: Plant }) {
           setAdded(true);
           setTimeout(() => setAdded(false), 2500);
         }}
-        className="tap-target mt-4 w-full rounded-xl bg-primary px-5 py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-primary-dark"
+        className="btn-delivery-metallic is-selected tap-target mt-4 w-full rounded-xl px-5 py-3 text-sm font-bold uppercase tracking-wide text-white"
       >
-        {added ? "Added to Cart ✓" : "Add to Cart"}
+        <span>{added ? "Added to Cart ✓" : "Add to Cart"}</span>
       </button>
 
       <p className="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-xs text-neutral-dark/50">

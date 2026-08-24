@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import JsonLd from "@/components/JsonLd";
 import ContactForm from "@/components/contact/ContactForm";
+import GoldFlourish from "@/components/home/GoldFlourish";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
 import { siteConfig } from "@/config/site";
@@ -53,13 +54,16 @@ export default function ContactPage() {
             </a>
           </address>
 
-          <div className="mt-6">
+          <div className="mt-6 rounded-2xl border border-[color:var(--color-nav-bronze)] bg-parchment p-6 shadow-md">
+            <div className="mb-3 flex justify-center" aria-hidden="true">
+              <GoldFlourish />
+            </div>
             <h2 className="font-heading text-lg font-bold text-primary">
               Hours
             </h2>
             <ul className="mt-2 space-y-1 text-sm text-black">
               {siteConfig.hours.map((h) => (
-                <li key={h.day} className="flex justify-between gap-4 border-b border-border py-1">
+                <li key={h.day} className="flex justify-between gap-4 border-b border-[color:var(--color-nav-bronze)]/25 py-1">
                   <span>{h.day}</span>
                   <span>
                     {h.open} – {h.close}

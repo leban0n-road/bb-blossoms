@@ -1,5 +1,21 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import {
+  Bug,
+  CloudSun,
+  Fence,
+  Home,
+  Layers,
+  MapPin,
+  PawPrint,
+  Sparkles,
+  Sun,
+  TreeDeciduous,
+  TreePalm,
+  TreePine,
+  Zap,
+  type LucideIcon,
+} from "lucide-react";
 import JsonLd from "@/components/JsonLd";
 import ShopGrid from "@/components/shop/ShopGrid";
 import { LinkButton } from "@/components/ui/Button";
@@ -13,6 +29,25 @@ import {
 } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema } from "@/lib/schema";
+
+// Same need→icon assignments as the homepage's NeedLinks (minus its
+// idle/hover animation variety, which is homepage-specific flourish) so
+// the pills read as the same icon everywhere they appear.
+const NEED_ICONS: Record<string, LucideIcon> = {
+  "fast-growing-privacy-plants": Zap,
+  "plants-for-a-fence-line": Fence,
+  "deer-resistant-plants": PawPrint,
+  "full-sun-plants": Sun,
+  "shade-plants": CloudSun,
+  "native-georgia-plants": MapPin,
+  "low-maintenance-plants": Sparkles,
+  "pollinator-plants": Bug,
+  "plants-for-clay-soil": Layers,
+  "drought-tolerant-plants": TreePalm,
+  "small-yard-trees": TreePine,
+  "plants-for-hoa-landscapes": Home,
+  "evergreen-privacy-plants": TreeDeciduous,
+};
 
 export function generateStaticParams() {
   return getCategories().map((c) => ({ category: c.slug }));
@@ -92,18 +127,37 @@ export default async function CategoryPage({
                 <h2 className="font-heading text-lg font-bold text-primary">
                   Shop {category.shortName} by Need
                 </h2>
+                <svg width="0" height="0" aria-hidden="true" className="absolute">
+                  <defs>
+                    <linearGradient id="category-need-icon-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#f4d58d" />
+                      <stop offset="50%" stopColor="#c9a227" />
+                      <stop offset="100%" stopColor="#8b6914" />
+                    </linearGradient>
+                  </defs>
+                </svg>
                 <ul className="mt-3 space-y-2">
-                  {relatedNeeds.map((need) => (
-                    <li key={need.slug}>
-                      <LinkButton
-                        href={`/shop-by-need/${need.slug}/`}
-                        variant="outline"
-                        className="!inline-flex !w-auto !py-2 !text-xs"
-                      >
-                        {need.name}
-                      </LinkButton>
-                    </li>
-                  ))}
+                  {relatedNeeds.map((need) => {
+                    const Icon = NEED_ICONS[need.slug] ?? Sparkles;
+                    return (
+                      <li key={need.slug}>
+                        <LinkButton
+                          href={`/shop-by-need/${need.slug}/`}
+                          variant="metallic"
+                          className="!inline-flex !w-auto !py-2 !text-xs"
+                        >
+                          <Icon
+                            aria-hidden="true"
+                            size={16}
+                            strokeWidth={1.75}
+                            color="url(#category-need-icon-gold)"
+                            className="need-icon-glow icon-idle-sway icon-hover-overshoot shrink-0"
+                          />
+                          {need.name}
+                        </LinkButton>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
             )}
