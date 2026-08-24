@@ -2,6 +2,14 @@ import type { NextConfig } from "next";
 import redirectsMap from "./redirects.json";
 
 const nextConfig: NextConfig = {
+  // Both icon libraries are imported piecemeal already (named imports /
+  // subpath imports, never a full barrel import), but this makes Next
+  // rewrite those imports to per-icon modules at build time so each page's
+  // client bundle only ships the icons it actually renders, instead of
+  // relying on the bundler's tree-shaking alone.
+  experimental: {
+    optimizePackageImports: ["lucide-react", "react-icons"],
+  },
   // NOTE: trailingSlash: true was tried here to match the site's
   // trailing-slash internal links/canonical/sitemap, but it also forces a
   // trailing slash onto Next's internal /_next/image optimizer route,
