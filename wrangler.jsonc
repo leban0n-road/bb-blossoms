@@ -11,6 +11,17 @@
 		"directory": ".open-next/assets",
 		"binding": "ASSETS"
 	},
+	"r2_buckets": [
+		{
+			// Backs the OpenNext incremental cache (ISR/prerendered page cache)
+			// so prerendered pages are served from R2 instead of re-invoking the
+			// Worker on every request. Binding name is fixed by
+			// @opennextjs/cloudflare's r2-incremental-cache override — must be
+			// exactly this, see node_modules/@opennextjs/cloudflare/dist/api/overrides/incremental-cache/r2-incremental-cache.js
+			"binding": "NEXT_INC_CACHE_R2_BUCKET",
+			"bucket_name": "bb-blossoms-cache"
+		}
+	],
 	"services": [
 		{
 			// Self-reference service binding, the service name must match the worker name
