@@ -26,8 +26,13 @@ export default function ContactPage() {
           { name: "Contact", path: "/contact/" },
         ])}
       />
+      {/* DOM order stays heading-then-form (h1 first for correct reading
+          order/SEO, and the form isn't left floating without its heading
+          on mobile); lg:order-* flips only the visual desktop position so
+          the form ends up on the left, contact info on the right — same
+          technique already used on /quote for its own column swap. */}
       <section className="container-page grid gap-10 pb-16 pt-8 lg:grid-cols-2">
-        <div>
+        <div className="lg:order-2">
           <h1 className="font-heading text-3xl font-bold text-primary md:text-4xl">
             Contact Us
           </h1>
@@ -52,7 +57,7 @@ export default function ContactPage() {
             <h2 className="font-heading text-lg font-bold text-primary">
               Hours
             </h2>
-            <ul className="mt-2 space-y-1 text-sm text-neutral-dark/75">
+            <ul className="mt-2 space-y-1 text-sm text-black">
               {siteConfig.hours.map((h) => (
                 <li key={h.day} className="flex justify-between gap-4 border-b border-border py-1">
                   <span>{h.day}</span>
@@ -75,7 +80,9 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <ContactForm />
+        <div className="lg:order-1">
+          <ContactForm />
+        </div>
       </section>
     </div>
   );

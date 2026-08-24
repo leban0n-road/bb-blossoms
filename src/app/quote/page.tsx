@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CheckCircle, Phone } from "lucide-react";
 import JsonLd from "@/components/JsonLd";
 import QuoteForm from "@/components/quote/QuoteForm";
 import { buildMetadata } from "@/lib/seo";
@@ -37,11 +38,45 @@ export default function QuotePage() {
             team will follow up with pricing — usually within one business
             day.
           </p>
+          <svg width="0" height="0" aria-hidden="true" className="absolute">
+            <defs>
+              <linearGradient id="quote-icon-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#f4d58d" />
+                <stop offset="50%" stopColor="#c9a227" />
+                <stop offset="100%" stopColor="#8b6914" />
+              </linearGradient>
+            </defs>
+          </svg>
           <div className="mt-6 space-y-3 text-sm text-neutral-dark/70">
-            <p>✅ No obligation, no pressure</p>
-            <p>✅ Backed by our 1-year plant guarantee</p>
-            <p>
-              📞 Prefer to talk it through? Call{" "}
+            <p className="flex items-center gap-2">
+              <CheckCircle
+                aria-hidden="true"
+                size={17}
+                strokeWidth={1.75}
+                color="url(#quote-icon-gold)"
+                className="shrink-0"
+              />
+              No obligation, no pressure
+            </p>
+            <p className="flex items-center gap-2">
+              <CheckCircle
+                aria-hidden="true"
+                size={17}
+                strokeWidth={1.75}
+                color="url(#quote-icon-gold)"
+                className="shrink-0"
+              />
+              Backed by our 1-year plant guarantee
+            </p>
+            <p className="flex items-center gap-2">
+              <Phone
+                aria-hidden="true"
+                size={17}
+                strokeWidth={1.75}
+                color="url(#quote-icon-gold)"
+                className="shrink-0"
+              />
+              Prefer to talk it through? Call{" "}
               <a href={siteConfig.phoneHref} className="text-accent hover:underline">
                 {siteConfig.phone}
               </a>

@@ -40,7 +40,7 @@ export default function LocationsHub() {
           <Link
             key={loc.slug}
             href={`/locations/${loc.slug}/`}
-            className="group rounded-2xl border border-border bg-white p-6 transition-shadow hover:shadow-lg"
+            className="group rounded-2xl border border-gold/30 bg-white p-6 transition-shadow hover:shadow-lg"
           >
             <h2 className="font-heading text-lg font-bold text-primary group-hover:text-accent">
               {loc.city}, {loc.stateAbbr}

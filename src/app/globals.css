@@ -469,6 +469,69 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--color-primary);
 }
 
+/* Cart/checkout delivery-method toggle: metallic gold trim (same
+   background-clip double-gradient trick used so the border respects the
+   button's own border-radius, unlike border-image) plus a diagonal shine
+   sweep on hover/focus and a soft gold glow pulse while selected —
+   reusing the nav bar's plaque-gold palette so it reads as the same
+   "metallic" system rather than a one-off effect. */
+.btn-delivery-metallic {
+  --btn-fill: #ffffff;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border: 2px solid transparent;
+  background-image:
+    linear-gradient(var(--btn-fill), var(--btn-fill)),
+    linear-gradient(135deg, #e8c876, var(--color-plaque-gold) 35%, var(--color-nav-bronze) 65%, #e8c876 100%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  transition: box-shadow 0.3s ease, transform 0.15s ease;
+}
+.btn-delivery-metallic:active {
+  transform: scale(0.97);
+}
+.btn-delivery-metallic > * {
+  position: relative;
+  z-index: 2;
+}
+.btn-delivery-metallic::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  z-index: 1;
+}
+.btn-delivery-metallic:hover::after,
+.btn-delivery-metallic:focus-visible::after {
+  animation: btn-shimmer-sweep 0.9s ease forwards;
+}
+@keyframes btn-shimmer-sweep {
+  from {
+    left: -60%;
+  }
+  to {
+    left: 130%;
+  }
+}
+.btn-delivery-metallic.is-selected {
+  --btn-fill: var(--color-primary);
+  animation: btn-delivery-glow 2.4s ease-in-out infinite;
+}
+@keyframes btn-delivery-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(240, 195, 67, 0);
+  }
+  50% {
+    box-shadow: 0 0 14px 3px rgba(240, 195, 67, 0.5);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

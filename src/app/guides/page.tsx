@@ -40,7 +40,7 @@ export default function GuidesHub() {
           <Link
             key={guide.slug}
             href={`/guides/${guide.slug}/`}
-            className="group flex flex-col rounded-2xl border border-border bg-white p-6 transition-shadow hover:shadow-lg"
+            className="group flex flex-col rounded-2xl border border-gold/30 bg-white p-6 transition-shadow hover:shadow-lg"
           >
             <span className="text-xs font-bold uppercase tracking-wide text-accent">
               {guide.category}

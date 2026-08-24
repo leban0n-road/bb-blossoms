@@ -68,12 +68,9 @@ export default function ReviewsPage() {
       </section>
 
       <section className="container-page grid place-items-center pb-16">
-        <div className="w-full max-w-sm rounded-2xl border border-border bg-white p-6 text-center">
-          <div className="flex justify-center">
-            <Stars rating={5} />
-          </div>
-          <p className="mt-3 text-sm leading-relaxed text-neutral-dark/75">
-            Review&rsquo;s coming soon
+        <div className="w-full max-w-sm rounded-2xl border border-gold/30 bg-white p-8 text-center">
+          <p className="text-sm leading-relaxed text-neutral-dark/60">
+            No reviews yet — check back soon.
           </p>
         </div>
       </section>
@@ -98,7 +95,7 @@ export default function ReviewsPage() {
               </defs>
             </svg>
             <Link
-              href="/contact/"
+              href="/reviews/write/"
               className="btn-need tap-target inline-flex items-center gap-2 rounded-xl border-[1.5px] border-gold bg-primary-dark/75 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-dark/90"
             >
               <MessageSquare

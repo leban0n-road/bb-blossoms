@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import GoldFlourish from "@/components/home/GoldFlourish";
 
 const PROJECT_TYPES = [
   "Privacy Screen / Fence Line",
@@ -64,13 +65,17 @@ export default function QuoteForm() {
   }
 
   return (
-    <div className="rounded-2xl border border-border bg-white p-6 md:p-8">
+    <div className="rounded-2xl border border-[color:var(--color-nav-bronze)] bg-parchment p-6 shadow-md md:p-8">
+      <div className="mb-4 flex justify-center" aria-hidden="true">
+        <GoldFlourish />
+      </div>
+
       <ol className="mb-6 flex items-center gap-2">
         {steps.map((label, i) => (
           <li key={label} className="flex flex-1 items-center gap-2">
             <span
               className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
-                i <= step ? "bg-accent text-white" : "bg-border text-neutral-dark/50"
+                i <= step ? "bg-primary text-white" : "bg-border text-neutral-dark/50"
               }`}
             >
               {i + 1}
@@ -78,7 +83,7 @@ export default function QuoteForm() {
             <span className="hidden text-xs font-medium text-neutral-dark/60 sm:inline">
               {label}
             </span>
-            {i < steps.length - 1 && <span className="h-px flex-1 bg-border" />}
+            {i < steps.length - 1 && <span className="h-px flex-1 bg-[color:var(--color-nav-bronze)]/40" />}
           </li>
         ))}
       </ol>
@@ -125,7 +130,7 @@ export default function QuoteForm() {
               value={form.plantInterest}
               onChange={(e) => setForm({ ...form, plantInterest: e.target.value })}
               placeholder="e.g. Green Giant Arborvitae, Encore Azaleas…"
-              className="tap-target w-full rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus-visible:outline-3 focus-visible:outline-accent"
+              className="tap-target w-full rounded-xl border border-border bg-white px-4 py-3 text-sm focus:outline-none focus-visible:outline-3 focus-visible:outline-accent"
             />
           </div>
         )}
@@ -142,7 +147,7 @@ export default function QuoteForm() {
               value={form.zipOrCity}
               onChange={(e) => setForm({ ...form, zipOrCity: e.target.value })}
               placeholder="ZIP code or city"
-              className="tap-target w-full rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus-visible:outline-3 focus-visible:outline-accent"
+              className="tap-target w-full rounded-xl border border-border bg-white px-4 py-3 text-sm focus:outline-none focus-visible:outline-3 focus-visible:outline-accent"
             />
           </div>
         )}
@@ -158,7 +163,7 @@ export default function QuoteForm() {
               placeholder="Full name"
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
-              className="tap-target w-full rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus-visible:outline-3 focus-visible:outline-accent"
+              className="tap-target w-full rounded-xl border border-border bg-white px-4 py-3 text-sm focus:outline-none focus-visible:outline-3 focus-visible:outline-accent"
             />
             <input
               type="email"
@@ -166,14 +171,14 @@ export default function QuoteForm() {
               placeholder="Email address"
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
-              className="tap-target w-full rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus-visible:outline-3 focus-visible:outline-accent"
+              className="tap-target w-full rounded-xl border border-border bg-white px-4 py-3 text-sm focus:outline-none focus-visible:outline-3 focus-visible:outline-accent"
             />
             <input
               type="tel"
               placeholder="Phone (optional)"
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              className="tap-target w-full rounded-xl border border-border px-4 py-3 text-sm focus:outline-none focus-visible:outline-3 focus-visible:outline-accent"
+              className="tap-target w-full rounded-xl border border-border bg-white px-4 py-3 text-sm focus:outline-none focus-visible:outline-3 focus-visible:outline-accent"
             />
           </div>
         )}
@@ -202,7 +207,7 @@ export default function QuoteForm() {
               type="button"
               disabled={!canAdvance[step]}
               onClick={() => setStep((s) => s + 1)}
-              className="tap-target rounded-xl bg-accent px-6 py-3 text-sm font-bold text-white disabled:opacity-40"
+              className="tap-target flex-1 rounded-xl bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-primary-dark disabled:opacity-40"
             >
               Next
             </button>
@@ -210,7 +215,7 @@ export default function QuoteForm() {
             <button
               type="submit"
               disabled={!canAdvance[step] || status === "submitting"}
-              className="tap-target rounded-xl bg-accent px-6 py-3 text-sm font-bold text-white disabled:opacity-40"
+              className="tap-target flex-1 rounded-xl bg-primary px-6 py-3 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-primary-dark disabled:opacity-40"
             >
               {status === "submitting" ? "Sending…" : "Get My Free Quote"}
             </button>

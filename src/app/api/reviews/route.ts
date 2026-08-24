@@ -1,18 +1,16 @@
 import { NextResponse } from "next/server";
 
-const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-interface ContactRequestBody {
+interface ReviewRequestBody {
   name: string;
-  email: string;
-  phone?: string;
-  message: string;
+  rating: number;
+  plant?: string;
+  review: string;
   /** Honeypot — real visitors never fill this in; a bot did. */
   company?: string;
 }
 
 export async function POST(request: Request) {
-  let body: Partial<ContactRequestBody>;
+  let body: Partial<ReviewRequestBody>;
   try {
     body = await request.json();
   } catch {
@@ -25,19 +23,16 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   }
 
-  const { name, email, message } = body;
-  if (!name || !email || !message) {
+  const { name, rating, review } = body;
+  if (!name || !review || !rating || rating < 1 || rating > 5) {
     return NextResponse.json(
-      { error: "Name, email, and message are required." },
+      { error: "Name, star rating, and review text are required." },
       { status: 400 }
     );
   }
-  if (!EMAIL_PATTERN.test(email)) {
-    return NextResponse.json({ error: "Enter a valid email address." }, { status: 400 });
-  }
 
   const resendApiKey = process.env.RESEND_API_KEY;
-  const notifyEmail = process.env.CONTACT_NOTIFY_EMAIL;
+  const notifyEmail = process.env.REVIEWS_NOTIFY_EMAIL;
 
   if (resendApiKey && notifyEmail) {
     try {
@@ -48,17 +43,20 @@ export async function POST(request: Request) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: "contact@bbblossoms.com",
+          from: "reviews@bbblossoms.com",
           to: notifyEmail,
-          subject: `New contact form message from ${name}`,
-          text: `Name: ${name}\nEmail: ${email}\nPhone: ${body.phone ?? "N/A"}\n\n${message}`,
+          subject: `New ${rating}-star review from ${name}`,
+          text: `Name: ${name}\nRating: ${rating}/5\nPlant: ${body.plant ?? "N/A"}\n\n${review}\n\n---\nThis review is NOT yet on the site. Add it to src/content/reviews.json to publish it.`,
         }),
       });
     } catch (error) {
-      console.error("Failed to send contact email via Resend", error);
+      console.error("Failed to send review email via Resend", error);
     }
   } else {
-    console.log("New contact message (no email provider configured):", body);
+    // No email provider configured yet — log server-side so submissions
+    // are never silently dropped. Wire RESEND_API_KEY + REVIEWS_NOTIFY_EMAIL
+    // to enable real email delivery.
+    console.log("New review submission (no email provider configured):", body);
   }
 
   return NextResponse.json({ ok: true });

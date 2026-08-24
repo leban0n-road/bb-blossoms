@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import JsonLd from "@/components/JsonLd";
 import ShopGrid from "@/components/shop/ShopGrid";
 import { LinkButton } from "@/components/ui/Button";
+import GoldFlourish from "@/components/home/GoldFlourish";
 import {
   getCategories,
   getCategoryBySlug,
@@ -84,7 +85,10 @@ export default async function CategoryPage({
         <section className="container-page pb-14">
           <div className="grid gap-4 md:grid-cols-2">
             {relatedNeeds.length > 0 && (
-              <div className="rounded-2xl border border-border bg-white p-6">
+              <div className="rounded-2xl border border-[color:var(--color-nav-bronze)] bg-parchment p-6 shadow-md">
+                <div className="mb-2 flex justify-center" aria-hidden="true">
+                  <GoldFlourish />
+                </div>
                 <h2 className="font-heading text-lg font-bold text-primary">
                   Shop {category.shortName} by Need
                 </h2>
@@ -104,7 +108,10 @@ export default async function CategoryPage({
               </div>
             )}
             {relatedGuides.length > 0 && (
-              <div className="rounded-2xl border border-border bg-white p-6">
+              <div className="rounded-2xl border border-[color:var(--color-nav-bronze)] bg-parchment p-6 shadow-md">
+                <div className="mb-2 flex justify-center" aria-hidden="true">
+                  <GoldFlourish />
+                </div>
                 <h2 className="font-heading text-lg font-bold text-primary">
                   Related Growing Guides
                 </h2>

@@ -16,17 +16,27 @@ export type CartItem = {
   installationFee: number;
 };
 
+const EMPTY_ITEMS: CartItem[] = [];
+
+// useSyncExternalStore requires getSnapshot to return the same reference
+// when nothing has changed, or it re-renders forever. Cache the parsed
+// array and only replace it when the cart is actually written to.
+let cachedItems: CartItem[] | null = null;
+
 function readItems(): CartItem[] {
-  if (typeof window === "undefined") return [];
+  if (typeof window === "undefined") return EMPTY_ITEMS;
+  if (cachedItems) return cachedItems;
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
-    return raw ? (JSON.parse(raw) as CartItem[]) : [];
+    cachedItems = raw ? (JSON.parse(raw) as CartItem[]) : [];
   } catch {
-    return [];
+    cachedItems = [];
   }
+  return cachedItems;
 }
 
 function writeItems(items: CartItem[]) {
+  cachedItems = items;
   window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
   window.dispatchEvent(new CustomEvent(EVENT_NAME));
 }
@@ -36,7 +46,7 @@ export function getCartItems(): CartItem[] {
 }
 
 export function getServerCartItems(): CartItem[] {
-  return [];
+  return EMPTY_ITEMS;
 }
 
 export function getCartCount(): number {
@@ -72,6 +82,11 @@ export function updateCartItemQuantity(id: string, quantity: number) {
 export function removeCartItem(id: string) {
   if (typeof window === "undefined") return;
   writeItems(readItems().filter((item) => item.id !== id));
+}
+
+export function clearCart() {
+  if (typeof window === "undefined") return;
+  writeItems([]);
 }
 
 /** Subscribe to cart changes. Designed for React's useSyncExternalStore. */

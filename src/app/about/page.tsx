@@ -100,7 +100,10 @@ export default function AboutPage() {
             body: "Our delivery and installation crews are licensed and insured for residential landscaping work (placeholder — replace with final license/insurance details).",
           },
         ].map((item) => (
-          <div key={item.title} className="rounded-2xl border border-border bg-white p-6">
+          <div
+            key={item.title}
+            className="rounded-2xl border border-gold/30 bg-white p-6 transition-shadow hover:shadow-lg"
+          >
             <h2 className="font-heading text-lg font-bold text-primary">
               {item.title}
             </h2>

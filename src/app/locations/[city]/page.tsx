@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 import PlantCard from "@/components/PlantCard";
 import QuoteCallButtons from "@/components/QuoteCallButtons";
 import { getLocationBySlug, getLocations, getPlantBySlug } from "@/lib/content";
 import { buildMetadata } from "@/lib/seo";
-import { localBusinessForLocationSchema } from "@/lib/schema";
+import { breadcrumbSchema, localBusinessForLocationSchema } from "@/lib/schema";
 import { siteConfig } from "@/config/site";
 
 export function generateStaticParams() {
@@ -45,7 +44,7 @@ export default async function LocationPage({
   const mapQuery = encodeURIComponent(`${location.city}, ${location.stateAbbr}`);
 
   return (
-    <div>
+    <div className="page-frame">
       <JsonLd
         data={localBusinessForLocationSchema(
           location.city,
@@ -54,21 +53,24 @@ export default async function LocationPage({
           location.longitude
         )}
       />
-      <Breadcrumbs
-        items={[
+      {/* Visible breadcrumb removed; structured data kept for SEO (no
+          visible-UI footprint) — Home is still reachable via the main nav. */}
+      <JsonLd
+        data={breadcrumbSchema([
+          { name: "Home", path: "/" },
           { name: "Locations", path: "/locations/" },
           { name: `${location.city}, ${location.stateAbbr}`, path: `/locations/${location.slug}/` },
-        ]}
+        ])}
       />
 
-      <section className="container-page pb-4 pt-2">
-        <h1 className="font-heading text-3xl font-bold text-primary md:text-4xl">
+      <section className="container-page pb-4 pt-8">
+        <h1 className="text-center font-heading text-3xl font-bold text-primary md:text-4xl">
           Plant Nursery Serving {location.city}, {location.stateAbbr}
         </h1>
-        <p className="mt-3 max-w-3xl leading-relaxed text-neutral-dark/75">
+        <p className="mx-auto mt-3 max-w-3xl text-center leading-relaxed text-neutral-dark/75">
           {location.intro}
         </p>
-        <div className="mt-5 flex flex-wrap gap-3">
+        <div className="mt-5 flex flex-wrap justify-center gap-3">
           <QuoteCallButtons gradientId="location-icon-gold" />
         </div>
       </section>
@@ -134,7 +136,7 @@ export default async function LocationPage({
 
       {popularPlants.length > 0 && (
         <section className="container-page pb-14">
-          <h2 className="font-heading text-2xl font-bold text-primary">
+          <h2 className="text-center font-heading text-2xl font-bold text-primary">
             Popular Plants in {location.city}
           </h2>
           <div className="mt-5 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
@@ -142,9 +144,11 @@ export default async function LocationPage({
               <PlantCard key={p.slug} plant={p} />
             ))}
           </div>
-          <Link href="/shop/" className="mt-4 inline-block text-sm font-semibold text-accent hover:underline">
-            Shop All Plants →
-          </Link>
+          <div className="mt-4 text-center">
+            <Link href="/shop/" className="text-sm font-semibold text-accent hover:underline">
+              Shop All Plants →
+            </Link>
+          </div>
         </section>
       )}
     </div>
