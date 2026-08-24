@@ -11,11 +11,13 @@ import wallpaperImage from "../../../public/images/landing-page/wallpaper.jpg";
  *
  * On short/laptop viewports this can be visible without scrolling (the
  * fixed layer covers the full viewport from y=0, and Hero doesn't always
- * fill it), so it needs the same instant, correctly-colored fallback as
- * Hero: an explicit bg color plus a real (statically-imported) blur
- * placeholder, instead of the transparent gap next/image otherwise
- * leaves — a gap browsers can paint as an incomplete-tile placeholder
- * color while the full image decodes.
+ * fill it), so it needs an instant, correctly-colored fallback: the
+ * explicit bg-primary-dark below, which matches this image's actual dark
+ * background. Deliberately NOT using placeholder="blur" here — this photo
+ * is mostly dark green with bright pink/magenta flower accents scattered
+ * near the edges, and Next's auto-generated blur thumbnail averages those
+ * together into a muddy purple smear that flashes before the real image
+ * paints. bg-primary-dark alone is the more accurate placeholder.
  */
 export default function WallpaperBackdrop() {
   return (
@@ -24,7 +26,6 @@ export default function WallpaperBackdrop() {
         src={wallpaperImage}
         alt=""
         fill
-        placeholder="blur"
         sizes="100vw"
         quality={90}
         className="object-cover"
