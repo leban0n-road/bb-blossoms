@@ -78,13 +78,37 @@ export default function ReviewsPage() {
         )}
       </section>
 
-      <section className="container-page grid place-items-center pb-16">
-        <div className="w-full max-w-sm rounded-2xl border border-gold/30 bg-white p-8 text-center">
-          <p className="text-sm leading-relaxed text-neutral-dark/60">
-            No reviews yet — check back soon.
-          </p>
-        </div>
-      </section>
+      {reviews.length > 0 ? (
+        <section className="container-page grid gap-5 pb-16 md:grid-cols-2 lg:grid-cols-3">
+          {reviews.map((review) => (
+            <div
+              key={`${review.author}-${review.date}`}
+              className="rounded-2xl border border-[color:var(--color-nav-bronze)] bg-parchment p-6"
+            >
+              <Stars rating={review.rating} />
+              <p className="mt-3 font-heading font-semibold text-neutral-dark">
+                {review.title}
+              </p>
+              <p className="mt-2 text-sm leading-relaxed text-neutral-dark/75">
+                &ldquo;{review.body}&rdquo;
+              </p>
+              <p className="mt-4 text-xs font-semibold text-neutral-dark/50">
+                {review.author}
+                {review.location ? ` — ${review.location}` : ""}
+                {review.verified ? " · Verified Customer" : ""}
+              </p>
+            </div>
+          ))}
+        </section>
+      ) : (
+        <section className="container-page grid place-items-center pb-16">
+          <div className="w-full max-w-sm rounded-2xl border border-gold/30 bg-white p-8 text-center">
+            <p className="text-sm leading-relaxed text-neutral-dark/60">
+              No reviews yet — check back soon.
+            </p>
+          </div>
+        </section>
+      )}
 
       <section className="container-page pb-16">
         <div className="rounded-2xl bg-primary/5 p-8 text-center">
